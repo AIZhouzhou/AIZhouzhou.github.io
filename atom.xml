@@ -48,10 +48,10 @@
   
   <entry>
     <title>我的第一篇Blog</title>
-    <link href="https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-bo-ge/"/>
-    <id>https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-bo-ge/</id>
+    <link href="https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-blog/"/>
+    <id>https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-blog/</id>
     <published>2019-11-13T06:03:58.000Z</published>
-    <updated>2019-11-13T11:29:14.367Z</updated>
+    <updated>2019-11-13T14:03:28.829Z</updated>
     
     <summary type="html">
     
@@ -60,53 +60,12 @@
         
         
           &lt;p&gt;很久以前就想写Blog了&lt;/p&gt;
+&lt;!--
+title         Markdown 的文件标题              文章标题，强烈建议填写此选项
 
+date          文件创建时的日期时间            
         
       
-    
-    </summary>
-    
-    
-      <category term="Markdown" scheme="https://aizhouzhou.github.io/categories/Markdown/"/>
-    
-    
-      <category term="Typora" scheme="https://aizhouzhou.github.io/tags/Typora/"/>
-    
-      <category term="Markdown" scheme="https://aizhouzhou.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://aizhouzhou.github.io/2019/11/13/hello-world/"/>
-    <id>https://aizhouzhou.github.io/2019/11/13/hello-world/</id>
-    <published>2019-11-13T06:02:07.841Z</published>
-    <updated>2019-11-13T06:02:07.841Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>typora-vue-theme</title>
-    <link href="https://aizhouzhou.github.io/2019/09/07/er/"/>
-    <id>https://aizhouzhou.github.io/2019/09/07/er/</id>
-    <published>2019-09-07T01:25:00.000Z</published>
-    <updated>2019-11-13T11:30:58.021Z</updated>
-    
-    <summary type="html">
     
     </summary>
     
