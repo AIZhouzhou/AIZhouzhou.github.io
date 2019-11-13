@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aizhouzhou.github.io/"/>
-  <updated>2019-11-13T09:23:32.471Z</updated>
+  <updated>2019-11-13T15:33:55.252Z</updated>
   <id>https://aizhouzhou.github.io/</id>
   
   <author>
@@ -17,41 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>四</title>
-    <link href="https://aizhouzhou.github.io/2019/11/13/si/"/>
-    <id>https://aizhouzhou.github.io/2019/11/13/si/</id>
-    <published>2019-11-13T09:23:32.000Z</published>
-    <updated>2019-11-13T09:23:32.471Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>三</title>
-    <link href="https://aizhouzhou.github.io/2019/11/13/san/"/>
-    <id>https://aizhouzhou.github.io/2019/11/13/san/</id>
-    <published>2019-11-13T09:18:37.000Z</published>
-    <updated>2019-11-13T09:18:37.612Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我的第一篇Blog</title>
+    <title>我的第一篇博客</title>
     <link href="https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-blog/"/>
     <id>https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-blog/</id>
     <published>2019-11-13T06:03:58.000Z</published>
-    <updated>2019-11-13T14:03:28.829Z</updated>
+    <updated>2019-11-13T15:33:55.252Z</updated>
     
     <summary type="html">
     
@@ -59,11 +29,7 @@
       
         
         
-          &lt;p&gt;很久以前就想写Blog了&lt;/p&gt;
-&lt;!--
-title         Markdown 的文件标题              文章标题，强烈建议填写此选项
-
-date          文件创建时的日期时间            
+          &lt;p&gt;&amp;emsp;&amp;emsp;&lt;strong&gt;忙碌了将近一天，终于把这个博客网站搭上了，哈哈哈，奈何自己太菜，只能用Hexo来写啦，搭这个博客的初衷很简单，就是想记录一下自己的经历把。因为第一次搭博客，所以也遇见了一点小问题（具体的也忘记了。。。），不过什么也是自己琢磨出来的，总
         
       
     
@@ -76,6 +42,8 @@ date          文件创建时的日期时间
       <category term="Typora" scheme="https://aizhouzhou.github.io/tags/Typora/"/>
     
       <category term="Markdown" scheme="https://aizhouzhou.github.io/tags/Markdown/"/>
+    
+      <category term="生活" scheme="https://aizhouzhou.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
