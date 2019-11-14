@@ -2,11 +2,11 @@
 <feed xmlns="https://www.w3.org/2005/Atom">
   <title>Zhouzhou&#39;Blog</title>
   
-  <subtitle>——Zhouzhou</subtitle>
+  <subtitle>Daily Sentence</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aizhouzhou.github.io/"/>
-  <updated>2019-11-13T15:36:56.871Z</updated>
+  <updated>2019-11-14T16:16:39.285Z</updated>
   <id>https://aizhouzhou.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++基础——对C的增强</title>
+    <link href="https://aizhouzhou.github.io/2019/11/15/c-ji-chu-dui-c-de-zeng-qiang-yi/"/>
+    <id>https://aizhouzhou.github.io/2019/11/15/c-ji-chu-dui-c-de-zeng-qiang-yi/</id>
+    <published>2019-11-14T16:11:58.000Z</published>
+    <updated>2019-11-14T16:16:39.285Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;C-基础——对C的增强&quot;&gt;&lt;a href=&quot;#C-基础——对C的增强&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C++" scheme="https://aizhouzhou.github.io/categories/C/"/>
+    
+    
+      <category term="Typora" scheme="https://aizhouzhou.github.io/tags/Typora/"/>
+    
+      <category term="Markdown" scheme="https://aizhouzhou.github.io/tags/Markdown/"/>
+    
+      <category term="C++基础" scheme="https://aizhouzhou.github.io/tags/C-%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>我的第一篇博客</title>
