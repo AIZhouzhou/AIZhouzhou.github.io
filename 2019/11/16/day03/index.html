@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++基础——对C的增强, Zhouzhou&#39;Blog">
-    <meta name="description" content="C++基础——对C的增强我们都知道C++是完全兼容C的，而且对C做了一定的优化。
-C++与C的不同在于：
-1.实用性的增强：变量可以任意定义了在C中：变量的定义必须在函数使用之前，不然在早期的编译器中可能出错。int i = 0;
-for(">
+    <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
+    <meta name="description" content="C++标准模板块(STL)介绍set1. set 的定义&amp;emsp;&amp;emsp;单独定义一个setset&amp;lt;typename&amp;gt; name;
+set&amp;lt;double&amp;gt; name;
+set&amp;lt;int&amp;gt; name;
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@ for(">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++基础——对C的增强 | Zhouzhou&#39;Blog</title>
+    <title>C++标准模板库(STL) | Zhouzhou&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -284,13 +284,13 @@ for(">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++基础——对C的增强
+                        C++标准模板库(STL)
                     </div>
                 </div>
             </div>
@@ -410,8 +410,8 @@ for(">
                                 <span class="chip bg-color">Markdown</span>
                             </a>
                         
-                            <a href="/tags/C-%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">C++基础</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -435,28 +435,28 @@ for(">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-15
+                    2019-11-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-15
+                    2019-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    5 分
                 </div>
                 
 				
@@ -472,217 +472,127 @@ for(">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-基础——对C的增强"><a href="#C-基础——对C的增强" class="headerlink" title="C++基础——对C的增强"></a>C++基础——对C的增强</h2><p>我们都知道C++是完全兼容C的，而且对C做了一定的优化。</p>
-<p>C++与C的不同在于：</p>
-<h2 id="1-实用性的增强：变量可以任意定义了"><a href="#1-实用性的增强：变量可以任意定义了" class="headerlink" title="1.实用性的增强：变量可以任意定义了"></a>1.实用性的增强：变量可以任意定义了</h2><h3 id="在C中：变量的定义必须在函数使用之前，不然在早期的编译器中可能出错。"><a href="#在C中：变量的定义必须在函数使用之前，不然在早期的编译器中可能出错。" class="headerlink" title="在C中：变量的定义必须在函数使用之前，不然在早期的编译器中可能出错。"></a>在C中：变量的定义必须在函数使用之前，不然在早期的编译器中可能出错。</h3><pre><code>int i = 0;
-for(i = 0; i &lt; 10; i++) {
-    printf(&quot;Hello C&quot;);
-}</code></pre><h3 id="在C-中：变量可以任意定义，不过要注意变量的作用域和生存周期。"><a href="#在C-中：变量可以任意定义，不过要注意变量的作用域和生存周期。" class="headerlink" title="在C++中：变量可以任意定义，不过要注意变量的作用域和生存周期。"></a>在C++中：变量可以任意定义，不过要注意变量的作用域和生存周期。</h3><pre><code>for(int i = 0; i &lt; 10; i++) {
-    // 这里的i会随for循环的结束而被释放
-    cout &lt;&lt; &quot;Hello CPP&quot;;
-}</code></pre><h2 id="2-对全局检测能力的增强：不允许有重定义的现象出现"><a href="#2-对全局检测能力的增强：不允许有重定义的现象出现" class="headerlink" title="2.对全局检测能力的增强：不允许有重定义的现象出现"></a>2.对全局检测能力的增强：不允许有重定义的现象出现</h2><h3 id="在C-中：一个变量不管是声明还是定义只能出现一次"><a href="#在C-中：一个变量不管是声明还是定义只能出现一次" class="headerlink" title="在C++中：一个变量不管是声明还是定义只能出现一次"></a>在C++中：一个变量不管是声明还是定义只能出现一次</h3><pre><code>// int g_val;
-// int g_val = 10;
-// 这样定义在C中不回报错，但是在C++中会报错</code></pre><h2 id="3-对struct的增强"><a href="#3-对struct的增强" class="headerlink" title="3.对struct的增强"></a>3.对struct的增强</h2><pre><code>struct teacher {
-    int id;
-    char name[64];
-};
-void test() {
-    //在C语言中只能struct teacher t;这样定义除非加上typedef
-    //而在C++可以这样：
-    teacher t;
-}</code></pre><h2 id="4-对函数检测增强"><a href="#4-对函数检测增强" class="headerlink" title="4.对函数检测增强"></a>4.对函数检测增强</h2><h3 id="在C-中：对形参传递，返回值做了严格的检查，不允许任意传，任意调用，必须有返回值。"><a href="#在C-中：对形参传递，返回值做了严格的检查，不允许任意传，任意调用，必须有返回值。" class="headerlink" title="在C++中：对形参传递，返回值做了严格的检查，不允许任意传，任意调用，必须有返回值。"></a>在C++中：对形参传递，返回值做了严格的检查，不允许任意传，任意调用，必须有返回值。</h3><h3 id="在C中：可以任意，不过一般按照规范去写。"><a href="#在C中：可以任意，不过一般按照规范去写。" class="headerlink" title="在C中：可以任意，不过一般按照规范去写。"></a>在C中：可以任意，不过一般按照规范去写。</h3><pre><code>void f(int i) {
-    cout &lt;&lt; i &lt;&lt; endl; 
-}
-void test3() {
-    f(1);
-    //在C中这样不会报错（warning），而在C++中这样会报错(error)。
-    //f(1, 2, 3);
-}</code></pre><h2 id="5-新增bool类型"><a href="#5-新增bool类型" class="headerlink" title="5.新增bool类型"></a>5.新增bool类型</h2><h3 id="在C语言中：非0代表真，0代表假。"><a href="#在C语言中：非0代表真，0代表假。" class="headerlink" title="在C语言中：非0代表真，0代表假。"></a>在C语言中：非0代表真，0代表假。</h3><pre><code>void test() {
-    int flag =1;//真
-    int flag=-1;//真
-    int flag=0;//假
-}</code></pre><h3 id="在C-中：新增了一个bool变量，bool变量的值只有0或1。"><a href="#在C-中：新增了一个bool变量，bool变量的值只有0或1。" class="headerlink" title="在C++中：新增了一个bool变量，bool变量的值只有0或1。"></a>在C++中：新增了一个bool变量，bool变量的值只有0或1。</h3><pre><code>void test() {
-    bool flag = true;
-    flag = false;//true--真，false--假
-    cout &lt;&lt; &quot;bool的size=&quot;&lt;&lt;sizeof(flag) &lt;&lt; endl;//1个字节
-    cout &lt;&lt; &quot;flag=&quot; &lt;&lt; flag &lt;&lt; endl;//为true值为1，为false值为0，不管为bool类型赋非0值则为1（true）,bool值只有0/1
-}</code></pre><h2 id="6-对三目运算符的增强"><a href="#6-对三目运算符的增强" class="headerlink" title="6.对三目运算符的增强"></a>6.对三目运算符的增强</h2><h3 id="在C中：a-gt-b-a-b-30一般会编译出错。原因是a-gt-b-a-b返回的是10，10-30会出错"><a href="#在C中：a-gt-b-a-b-30一般会编译出错。原因是a-gt-b-a-b返回的是10，10-30会出错" class="headerlink" title="在C中：a &gt; b ? a : b = 30一般会编译出错。原因是a &gt; b ? a : b返回的是10，10 = 30会出错"></a>在C中：a &gt; b ? a : b = 30一般会编译出错。原因是a &gt; b ? a : b返回的是10，10 = 30会出错</h3><h3 id="而在C-中：a-gt-b-a-b返回的是对b的引用。"><a href="#而在C-中：a-gt-b-a-b返回的是对b的引用。" class="headerlink" title="而在C++中：a &gt; b ? a : b返回的是对b的引用。"></a>而在C++中：a &gt; b ? a : b返回的是对b的引用。</h3><blockquote>
-<p>注意：a &gt; b ? a : b作为左值时返回的结果不能有常量（常量不能取地址）。做右值时任意</p>
-</blockquote>
-<pre><code>void test()
-{
-    int a = 10;
-    int b = 20;
-    int max = 0;
-    max = a &gt; b ? a : b;
-    printf(&quot;%d\n&quot;,max);
-
-    //c：
-    //(a &gt; b ? a : b) = 30;    这样是错误的
-    *(a &gt; b ? &amp;a : &amp;b) = 30;    // 可以通过指针改变地址。
-
-    //c++:
-    (a &gt; b ? a : b) = 30;//在c中这个会出错20=30没有意义，在c++中可以使用a &gt; b ? a : b 返回b变量的引用        相当于：*(a&gt;b?&amp;a:&amp;b)=30
-
-    cout &lt;&lt; &quot;b=&quot; &lt;&lt; b &lt;&lt; endl;//30
-    //a &gt; b ? 10 : b = 30;//error,作为左值时返回的结果不能有常量（常量不能取地址），做右值时任意。
-}</code></pre><h2 id="7-const增强"><a href="#7-const增强" class="headerlink" title="7.const增强"></a>7.const增强</h2><h3 id="在C中："><a href="#在C中：" class="headerlink" title="在C中："></a>在C中：</h3><ol>
-<li><p>const并不是一个常量，是一个变量加了只读属性。</p>
-</li>
-<li><p>const int 和 int const 是一样的。</p>
-</li>
-<li><p>const修饰的变量实际上是可以通过指针改变的，是一个假的常量。</p>
-<pre><code> void test() {
-     const int a = 10;
-     int* p = &amp;a;
-     *p = 70;
-     printf(&quot;%d\n&quot;,a);    // 70
- }</code></pre></li>
-<li><p>与#define是有区别的。#define在预编译时处理，const在编译时处理。</p>
-</li>
-</ol>
-<h3 id="const-int-c-int-const-c-和-const-int-count-的区别："><a href="#const-int-c-int-const-c-和-const-int-count-的区别：" class="headerlink" title="const int* c , int* const c 和 const int* count 的区别："></a>const int* c , int* const c 和 const int* count 的区别：</h3><ul>
-<li>前者修饰const int表示指针C指向的地址的值不能改变，但是可以指向不同的地址。</li>
-<li>中间修饰int 表示指针C不可以改变，但是指向的地址可以改变。</li>
-<li>后者表示指针C不可以改变，指针指向的地址也不可以改变。</li>
-</ul>
-<h3 id="在c-中："><a href="#在c-中：" class="headerlink" title="在c++中："></a>在c++中：</h3><ol>
-<li><p>const修饰表示的就是常量。const int a=1;这在C++中并不会在栈空间中开辟空间，而在内存中会有一个符号表去记录key—value。</p>
-</li>
-<li><p>a实际上是一个符号，是不能去访问地址的，但C++发现对一个const常量符号取地址时，会临时在栈上开辟一个临时空间，这个变量是匿名的，p–&gt;临时变量。</p>
-</li>
-</ol>
-<h2 id="8-enum的增强"><a href="#8-enum的增强" class="headerlink" title="8.enum的增强"></a>8.enum的增强</h2><h3 id="C语言中枚举本质就是整型，枚举变量可以用任意整型赋值，而C-中枚举变量，只能用被枚举出来的元素初始化。"><a href="#C语言中枚举本质就是整型，枚举变量可以用任意整型赋值，而C-中枚举变量，只能用被枚举出来的元素初始化。" class="headerlink" title="C语言中枚举本质就是整型，枚举变量可以用任意整型赋值，而C++中枚举变量，只能用被枚举出来的元素初始化。"></a>C语言中枚举本质就是整型，枚举变量可以用任意整型赋值，而C++中枚举变量，只能用被枚举出来的元素初始化。</h3><pre><code>enum num {
-    a = 0,
-    b,
-    c,
-    d
-};
-
-void test() {
-    enum num n = a;
-    /*n = 0;
-    n = 1;
-    n = 2;
-    n = 3;*/
-    //在C语言中给枚举类型赋值时，可以通过枚举值赋值，而在C++中不可以
-}</code></pre><h2 id="9-引用的基本概念"><a href="#9-引用的基本概念" class="headerlink" title="9.引用的基本概念"></a>9.引用的基本概念</h2><ol>
-<li>引用没有定义，是一种关系型声明。声明它和原有某一变量（实体）的关系。故而类型与原类型保持一致，且不分配内存。与被引用的变量有相同的内存地址。</li>
-<li>声明的时候必须初始化，一经声明，不可变更。 </li>
-<li>可对引用，再次引用。多次引用的结果，是某一变量具有多个别名。</li>
-<li>&amp; 符号前有数据类型时，是引用，例如：int&amp;，double&amp;。其它皆为取地址。</li>
-</ol>
+                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h3 id="1-set-的定义"><a href="#1-set-的定义" class="headerlink" title="1. set 的定义"></a>1. set 的定义</h3><h4 id="emsp-emsp-单独定义一个set"><a href="#emsp-emsp-单独定义一个set" class="headerlink" title="&emsp;&emsp;单独定义一个set"></a>&emsp;&emsp;单独定义一个set</h4><pre><code>set&lt;typename&gt; name;
+set&lt;double&gt; name;
+set&lt;int&gt; name;
+set&lt;char&gt; name;
+set&lt;node&gt; name;    // node 是结构体的类型</code></pre><h4 id="emsp-emsp-set数组的定义和-vector-相同"><a href="#emsp-emsp-set数组的定义和-vector-相同" class="headerlink" title="&emsp;&emsp;set数组的定义和 vector 相同"></a>&emsp;&emsp;set数组的定义和 vector 相同</h4><pre><code>set&lt;typename&gt; st[100];</code></pre><p>&emsp;&emsp;这样 st[0] - st[99] 中每一个都是一个vector容器。</p>
+<h3 id="2-set-容器内元素的访问"><a href="#2-set-容器内元素的访问" class="headerlink" title="2. set 容器内元素的访问"></a>2. set 容器内元素的访问</h3><h4 id="emsp-emsp-set-只能通过迭代器-iterator-访问"><a href="#emsp-emsp-set-只能通过迭代器-iterator-访问" class="headerlink" title="&emsp;&emsp;set 只能通过迭代器(iterator)访问"></a>&emsp;&emsp;set 只能通过迭代器(iterator)访问</h4><pre><code>set&lt;typename&gt;::iterator it;</code></pre><p>&emsp;&emsp;typename 就是定义 set 时填写的类型，下面是 typename 为 int 和 char 的举例：</p>
+<pre><code>set&lt;int&gt;::iterator it;
+set&lt;char&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样就得到了迭代器it，并且可以通过 *it 来访问 set 里的元素。</p>
+<p>&emsp;&emsp;由于<strong>除开 vector 和 string 之外的 STL 容器都不支持 *(it + i)</strong>的访问方式，因此只能按照以下方式枚举：</p>
 <pre><code>#include&lt;iostream&gt;
+#include&lt;set&gt;
 using namespace std;
-void change_value(int&amp; r) {
-    r = 30;
-}
 int main() {
-    int a = 20;
-    int b = 30;
-    int *p = &amp;a;
-    *p = 30;
-    cout &lt;&lt; a &lt;&lt; endl;    // 30
-
-    p = &amp;b;
-    *p = 20;
-    cout &lt;&lt; b &lt;&lt; endl;    // 20
-
-    int&amp; re = a;    // int&amp; 使用引用数据类型，re就是a的别名。 
-    re = 50;
-    cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;    // 50
-
-    // int&amp; re;    引用必须初始化。
-
-    int&amp; re2 = re;    // 可对引用，再次引用。
-    re2 = 60;
-    cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;
-
-    cout &lt;&lt; &quot;-----------------&quot;&lt;&lt; endl;
-    change_value(a);
-    cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;
+    set&lt;int&gt; st;
+    st.insert(3);    // insert(x)将 x 插入 set 中
+    st.insert(5);
+    st.insert(2);
+    st.insert(3);
+     // 注意，不支持 it &lt; st.end() 的写法
+    for(set&lt;int&gt;::iterator it = st.begin(); it != st.end(); it++) {
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
+    }
 
     return 0;
-}</code></pre><ol start="5">
-<li>通过引用 可以降低需要改变地址值时的难度。</li>
-<li>引用作为函数的参数 </li>
-</ol>
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>2 3 5</code></pre><h3 id="3-set-常用的函数实例解析"><a href="#3-set-常用的函数实例解析" class="headerlink" title="3. set 常用的函数实例解析"></a>3. set 常用的函数实例解析</h3><h4 id="1-insert"><a href="#1-insert" class="headerlink" title="(1) insert()"></a>(1) insert()</h4><p>&emsp;&emsp;insert(x) 可将 x 插入 set 容器中，并自动递增排序和去重，时间复杂度为 O(logN)，其中 N 为 set 内的元素的个数。</p>
+<h4 id="2-find"><a href="#2-find" class="headerlink" title="(2) find()"></a>(2) find()</h4><p>&emsp;&emsp;find(value) 返回 set 中对应值为 value 的迭代器，时间复杂度为 O(logN)，其中 N 为 set 内的元素的个数。</p>
 <pre><code>#include&lt;iostream&gt;
+#include&lt;set&gt;
 using namespace std;
-
-struct student{
-    int id;
-    char name[64];
-};
-
-// 使用指针的方法 交换两个数的值 
-void swap(int* a, int* b) {
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-// 使用引用的方法 交换两个数的值 
-void swap2(int&amp; a, int&amp; b) {
-    int temp;
-    temp = a;
-    a = b;
-    b = temp;
-}
-
-// 使用普通的方法 
-void prints(student s) {    // 相当于 student s = s1; 变成了拷贝操作，不建议这样。 
-    cout &lt;&lt; s.id &lt;&lt; &quot;\t&quot;&lt;&lt; s.name &lt;&lt; endl;
-}
-
-// 使用指针的方法 
-void prints2(student* s) {    // 相当于 student* s = &amp;s1;  
-    cout &lt;&lt; s-&gt;id &lt;&lt; &quot;\t&quot;&lt;&lt; s-&gt;name &lt;&lt; endl;
-}
-
-// 使用引用的方法 
-void prints3(student&amp; s) {    // 相当于 student* s = &amp;s1;  
-    cout &lt;&lt; s.id &lt;&lt; &quot;\t&quot;&lt;&lt; s.name &lt;&lt; endl;
-}
-
 int main() {
-    int a = 10, b = 20;
-//    swap(&amp;a, &amp;b);
-    swap2(a, b);
-    cout &lt;&lt; &quot;a = &quot; &lt;&lt; a &lt;&lt; endl;
-    cout &lt;&lt; &quot;b = &quot; &lt;&lt; b &lt;&lt; endl;
+    set&lt;int&gt; st;
+    for(int i = 1; i &lt;= 3; i++) {
+        st.insert(i);
+    }
 
-    student s1 = {10, &quot;zhangsan&quot;};
-    prints(s1);
-    prints2(s1);
-    prints3(s1);
+    set&lt;int&gt;::iterator it = st.find(2);    //在 set 中查找2，返回其迭代器
+    cout &lt;&lt; *it;
 
     return 0;
-} </code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>实用性增强（变量定义），全局变量定义检查（严格），变量类型检查严格，所有变量和函数定义必须有类型。</li>
-<li>struct关键字（c中不是新类型），与class功能相同。</li>
-<li>类型加强 bool 1个字节，但是只有 true 和 false。</li>
-<li>C++中三目运算符，返回变量自身，C返回的是变量的值。</li>
-<li>const增强<ul>
-<li>指针变量和它所指向的内存空间变量是两个不同的概念。</li>
-<li>C中冒牌货（只读变量有自己的存储空间）。</li>
-<li>C++ const是一个只读常量，符号表机制，不可分配内存。</li>
-<li>const是由编译器处理的，提供类型检查和作用域检查。</li>
-<li>#define宏定义有预处理器处理，单纯的文本替换。</li>
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>2</code></pre><h4 id="3-erase"><a href="#3-erase" class="headerlink" title="(3) erase()"></a>(3) erase()</h4><p>&emsp;&emsp;erase()有两种方法：删除单个元素，删除一个区间内的所有元素。</p>
+<p>&emsp;&emsp;① 删除单个元素。</p>
+<p>&emsp;&emsp;删除单个元素的方法：</p>
+<ul>
+<li><p>st.erase(it)，it 为所有需要删除元素的迭代器。时间复杂度为 O(1)。可以结合 find()  函数来使用。示例如下：</p>
+<pre><code>  #include&lt;iostream&gt;
+  #include&lt;set&gt;
+  using namespace std;
+  int main() {
+      set&lt;int&gt; st;
+      st.insert(100);
+      st.insert(200);
+      st.insert(100);
+      st.insert(300);    
+
+      st.erase(st.find(100));    // 利用 find()函数找到100， 然后用 erase 删除它
+      st.erase(st.find(200));    // 利用 find()函数找到100， 然后用 erase 删除它
+
+      for(set&lt;int&gt;::iterator it = st.begin(); it != st.end(); it++) {
+          cout &lt;&lt; *it;
+      }
+
+      return 0;
+  }</code></pre></li>
 </ul>
-</li>
-<li>引用<ul>
-<li>引用没有定义，是一种关系型声明。声明它和原有某一变量（实体）的关系。故而类型与原类型保持一致，且不分配内存。与被引用的变量有相同的内存地址。</li>
-<li>声明的时候必须初始化，一经声明，不可变更。 </li>
-<li>可对引用，再次引用。多次引用的结果，是某一变量具有多个别名。</li>
-<li>&amp; 符号前有数据类型时，是引用，例如：int&amp;，double&amp;。其它皆为取地址。</li>
-<li>通过引用 可以降低需要改变地址值时的难度（好用）。</li>
-<li>引用作为函数的参数。</li>
-</ul>
-</li>
-</ol>
-<p>&emsp;&emsp;晚安</p>
+<p>&emsp;&emsp;输出结果：</p>
+<pre><code>200</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。<br>&emsp;&emsp;st.erase(first, end)可以删除一个区间内的所有元素，其中 first 为所需要删除区间的起始迭代器，而 last 则为所需要删除区间的末尾迭代器的下一个地址，也即为删除[first, last)。时间复杂度为 O(last - first)。示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;set&gt;
+using namespace std;
+int main() {
+    set&lt;int&gt; st;
+    st.insert(20);
+    st.insert(10);
+    st.insert(40);
+    st.insert(30);    
+
+    set&lt;int&gt;::iterator it  = st.find(30);
+    st.erase(it, st.end()); // 删除元素 30 至 set 末尾之间的元素，即 30 和 40            
+
+    for(set&lt;int&gt;::iterator it = st.begin(); it != st.end(); it++) {
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
+    }
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>3</code></pre><h4 id="4-size"><a href="#4-size" class="headerlink" title="(4) size()"></a>(4) size()</h4><p>&emsp;&emsp;size() 用来获取 set 内元素的个数，时间复杂度为 O(1)。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;set&gt;
+using namespace std;
+int main() {
+    set&lt;int&gt; st;
+    st.insert(2);
+    st.insert(5);
+    st.insert(4);    // 插入 2 5 4
+
+    st.clear();        // 输出 set 内元素的个数
+    cout &lt;&lt; st.size();        
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>3</code></pre><h4 id="5-clear"><a href="#5-clear" class="headerlink" title="(5) clear()"></a>(5) clear()</h4><p>&emsp;&emsp;clear() 用来清空 set 中的所有元素，复杂度为 O(N)，其中 N 为 set 内元素的个数。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;set&gt;
+using namespace std;
+int main() {
+    set&lt;int&gt; st;
+    st.insert(2);
+    st.insert(5);
+    st.insert(4);
+
+    st.clear();    // 清空 set
+    cout &lt;&lt; st.size();        
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>0</code></pre><h3 id="3-set-的常见用途"><a href="#3-set-的常见用途" class="headerlink" title="3. set 的常见用途"></a>3. set 的常见用途</h3><h4 id="emsp-emsp-set-最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用-set-解决。"><a href="#emsp-emsp-set-最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用-set-解决。" class="headerlink" title="&emsp;&emsp;set 最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用 set 解决。"></a>&emsp;&emsp;set 最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用 set 解决。</h4><p>&emsp;&emsp;<strong>延伸</strong>：set 中元素是唯一的，如果需要处理不唯一的情况，则需要使用 <strong>multiset</strong>。</p>
+<p>&emsp;&emsp; 晚安。</p>
 
             </div>
             <hr/>
@@ -708,7 +618,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/15/c-ji-chu-dui-c-de-zeng-qiang-yi/">https://aizhouzhou.github.io/2019/11/15/c-ji-chu-dui-c-de-zeng-qiang-yi/</a>
+                    <a href="https://aizhouzhou.github.io/2019/11/16/day03/">https://aizhouzhou.github.io/2019/11/16/day03/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -754,8 +664,8 @@ int main() {
                                     <span class="chip bg-color">Markdown</span>
                                 </a>
                             
-                                <a href="/tags/C-%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">C++基础</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -1189,24 +1099,24 @@ int main() {
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2019/11/15/c-ji-chu-dui-c-de-zeng-qiang-yi/">
+                <a href="/2019/11/16/day03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="C++基础——对C的增强">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
                         
-                        <span class="card-title">C++基础——对C的增强</span>
+                        <span class="card-title">C++标准模板库(STL)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++基础
+                            STL之set
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
                             </span>
                         <span class="publish-author">
                             
@@ -1232,8 +1142,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/C-%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">C++基础</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
@@ -1247,31 +1157,31 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/13/wo-de-di-yi-pian-blog/">
+                <a href="/2019/11/16/day02/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="我的第一篇博客">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
                         
-                        <span class="card-title">我的第一篇博客</span>
+                        <span class="card-title">C++标准模板库(STL)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            写博客的初衷
+                            STL之vector
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -1289,8 +1199,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                        <span class="chip bg-color">生活</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
@@ -1440,7 +1350,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.6k</span>&nbsp;字
+                class="white-color">5.5k</span>&nbsp;字
             
             
             

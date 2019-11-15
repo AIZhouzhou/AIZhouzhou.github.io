@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="我的第一篇博客, Zhouzhou&#39;Blog">
-    <meta name="description" content="&amp;emsp;&amp;emsp;忙碌了将近一天，终于把这个博客网站搭上了，哈哈哈，奈何自己太菜，只能用Hexo来写啦，搭这个博客的初衷很简单，就是想记录一下自己的经历吧。因为第一次搭博客，所以也遇见了一点小问题（具体的也忘记了。。。），不过什么也是">
+    <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
+    <meta name="description" content="C++标准模板块(STL)介绍vector1. vector 的定义&amp;emsp;&amp;emsp;单独定义一个vectorvector&amp;lt;int&amp;gt; name;
+vector&amp;lt;double&amp;gt; name;
+vector&amp;lt;c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>我的第一篇博客 | Zhouzhou&#39;Blog</title>
+    <title>C++标准模板库(STL) | Zhouzhou&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -281,13 +283,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        我的第一篇博客
+                        C++标准模板库(STL)
                     </div>
                 </div>
             </div>
@@ -407,8 +409,8 @@
                                 <span class="chip bg-color">Markdown</span>
                             </a>
                         
-                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                <span class="chip bg-color">生活</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -419,8 +421,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Markdown/" class="post-category">
-                                Markdown
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -432,28 +434,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-13
+                    2019-11-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-13
+                    2019-11-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    552
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
 				
@@ -469,39 +471,184 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;<strong>忙碌了将近一天，终于把这个博客网站搭上了，哈哈哈，奈何自己太菜，只能用Hexo来写啦，搭这个博客的初衷很简单，就是想记录一下自己的经历吧。因为第一次搭博客，所以也遇见了一点小问题（具体的也忘记了。。。），不过什么也是自己琢磨出来的，总不能因为这点小小的问题就放弃把，失败就失败，大不了重来呗，我们还年轻，有的是机会重来。</strong></p>
-<h3 id="我为什么要写博客？"><a href="#我为什么要写博客？" class="headerlink" title="我为什么要写博客？"></a><em>我为什么要写博客</em>？</h3><p>&emsp;&emsp;不管做什么事，总得知道做这件事的原因，做这件事的目的吧。</p>
-<p>&emsp;&emsp;写博客对于我来说有什么或者将会带来什么好处，针对我个人而言，我认为写博客的最重要作用就是记录自己的成长足迹，因为它可以记录我各个阶段做了什么，收获了什么，不管是写技术博客，还是记录生活经历的博客，对我或多或少都是会有点感触的。</p>
-<p>&emsp;&emsp;每个人都是从不懂到懂的，我写博客，其中的一个原因就是为了之后回顾自己之前做过的事情。看看之前的自己和现在的自己发生了什么变化，不管是学习方面还是生活方面都是一样的。我们都是一样的，没写文章的时候感觉自己很厉害，啥都懂，但是写的时候却写不出来，这其实就是对这个知识理解得不够透彻，从而可以认识自己的不足，进而才会改变自己。</p>
-<p>&emsp;&emsp;我希望可以认识更多志同道合的朋友，互相讨论，互相弥补缺点，所以我也添加了”留言区”这个功能。希望将来来到我的博客的朋友们，都来发表发表自己的看法吧，说一说对于我写的某些东西的不足以及微乎其微的亮点吧。</p>
-<p>&emsp;&emsp;多的不说了，以后我都会把他们记录在我的博客里面。</p>
-<p>&emsp;&emsp;晚安</p>
-<!--
-title         Markdown 的文件标题              文章标题，强烈建议填写此选项
+                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="1-vector-的定义"><a href="#1-vector-的定义" class="headerlink" title="1. vector 的定义"></a>1. vector 的定义</h3><h4 id="emsp-emsp-单独定义一个vector"><a href="#emsp-emsp-单独定义一个vector" class="headerlink" title="&emsp;&emsp;单独定义一个vector"></a>&emsp;&emsp;单独定义一个vector</h4><pre><code>vector&lt;int&gt; name;
+vector&lt;double&gt; name;
+vector&lt;char&gt; name;
+vector&lt;node&gt; name;    // node是结构体类型
+vector&lt;vector&lt;typename&gt; &gt; name;    // &gt;&gt; 之间要有空格</code></pre><h4 id="emsp-emsp-定义vector数组的方法"><a href="#emsp-emsp-定义vector数组的方法" class="headerlink" title="&emsp;&emsp;定义vector数组的方法"></a>&emsp;&emsp;定义vector数组的方法</h4><pre><code>vector&lt;int&gt; vi[100];</code></pre><p>&emsp;&emsp;这样vi[0] - vi[99] 中每一个都是一个vector容器。</p>
+<h3 id="2-vector-容器内元素的访问"><a href="#2-vector-容器内元素的访问" class="headerlink" title="2. vector 容器内元素的访问"></a>2. vector 容器内元素的访问</h3><p>&emsp;&emsp;vector 一般有两种访问方式：通过下标访问或通过迭代器访问。</p>
+<h4 id="通过下标访问"><a href="#通过下标访问" class="headerlink" title="通过下标访问"></a>通过下标访问</h4><p>&emsp;&emsp;和访问普通的数组是一样的，对一个定义为 vector<typename> vi 的vector容器来说，直接访问 vi[index] 即可（如vi[0],vi[1]）。当然，这里下标是从 0 到 vi.size() - 1，访问这个范围以外的元素可能会运行报错。</p>
+<h4 id="通过迭代器访问"><a href="#通过迭代器访问" class="headerlink" title="通过迭代器访问"></a>通过迭代器访问</h4><p>&emsp;&emsp;迭代器(itreator)可以理解为一种类似指针的东西，其定义是：</p>
+<pre><code>vector&lt;typename&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样 it 就是一个 vector<typename>::iterator 类型的变量（虽然这个变量看起来很长），其中 typename 就是定义 vector 时填写的类型。下面是 typename 为 int 和 double的举例：</p>
+<pre><code>vector&lt;int&gt;::iterator it;
+vector&lt;double&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样就得到了迭代器 it，并且可以通过 *it 来访问 vector 里的元素。<br>例如，有这样定义的一个 vector 容器：</p>
+<pre><code>vector&lt;int&gt; vi;
+for(int i = 0; i &lt;= 5; i++) {
+    vi.push_back(i);    // push_back(i)在vi的末尾添加元素i，即依次添加 1 2 3 4 5
+}</code></pre><p>&emsp;&emsp;可以通过类似下标和指针访问数组的方式来访问容器内的元素：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 5; i++) {
+        vi.push_back(i);
+    }
+    // vi.begin()为取 vi 的首元素地址，而 it 指向这个地址
+    vector&lt;int&gt;::iterator it = vi.begin();
+    for(int i = 0; i &lt; 5; i++) {
+        cout &lt;&lt; *(it + i) &lt;&lt; &quot; &quot;;    
+    }
 
-date          文件创建时的日期时间             发布时间，强烈建议填写此选项，且最好保证全局唯一
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果</p>
+<pre><code>1 2 3 4 5</code></pre><p>&emsp;&emsp;从这里可以看出 <strong>v[i] 和 *(vi.begin() + i) 是等价的</strong>。<br>既然上面说到了begin()函数的作用为取 vi 的首地址元素，那么这里还要提到 end()函数。和begin()函数不同的是，end() 并不是取 vi 的尾元素地址，而是取尾元素地址的下一个地址。end()作为迭代器末尾标志，不存储任何元素。美国人思维比较<strong>左闭右开</strong>，在这里begin() 和 end()也是如此。</p>
+<p>&emsp;&emsp;除此之外，迭代器还实现了两种自加操作：++it 和 it++（自减操作同理），于是有了另一中遍历 vector 中元素的写法：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 5; i++) {
+        vi.push_back(i);
+    }
 
-author        根 _config.yml 中的 author      文章作者
+    // vector 的迭代器不支持 it &lt; vi.end() 写法，因此循环条件只能用 it != vi.end()
 
-img            featureImages 中的某个值        文章特征图，推荐使用图床(腾讯云、七牛云、又拍云等)来做图片的路径.如: http://xxx.com/xxx.jpg
+    for(vector&lt;int&gt;::iterator it = vi.begin(); it != vi.end(); it++) {
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;    
+    }
 
-top            true                            推荐文章（文章是否置顶），如果 top 值为 true，则会作为首页推荐文章
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>1 2 3 4 5</code></pre><p>&emsp;&emsp;最后需要指出，在常用的 <strong>STL</strong> 容器中，只有在 <strong>vector</strong> 和 <strong>string</strong> 中，才允许使用 <strong>vi.begin() + 3 这种迭代器加上整数的写法</strong>。</p>
+<h3 id="3-vector-常用函数实例解析"><a href="#3-vector-常用函数实例解析" class="headerlink" title="3. vector 常用函数实例解析"></a>3. vector 常用函数实例解析</h3><h4 id="1-push-back"><a href="#1-push-back" class="headerlink" title="(1) push_back()"></a>(1) push_back()</h4><p>&emsp;&emsp;顾名思义，push_back(x)就是在 vector 后面添加一个元素 x，时间复杂度为O(1)。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 3; i++) {
+        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
+    }
 
-cover          false                            表示该文章是否需要加入到首页轮播封面中
+    for(int i =0; i &lt; vi.size(); i++) {    // size() 函数会给出 vi 中元素的个数
+        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;    
+    }
 
-coverImg       无                            表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>1 2 3</code></pre><h4 id="2-pop-back"><a href="#2-pop-back" class="headerlink" title="(2) pop_back()"></a>(2) pop_back()</h4><p>&emsp;&emsp;有添加就会有删除，pop_back()用以删除 vector 的尾元素，时间复杂度为 O(1)。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 3; i++) {
+        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
+    }
 
-password        无                               文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 password 的值，该值必须是用 SHA256 加密后的密码，防止被他人识破。前提是在主题的 config.yml 中激活了 verifyPassword 选项
+    vi.pop_back();    // 删除 vi 的尾元素
+    for(vector&lt;int&gt;::iterator it = vi.begin(); it != vi.end(); it++) {    // size() 函数会给出 vi 中元素的个数
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;    
+    }
 
-toc            true                             是否开启 TOC，可以针对某篇文章单独关闭 TOC 的功能。前提是在主题的 config.yml 中激活了 toc 选项
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>1 2</code></pre><h4 id="3-size"><a href="#3-size" class="headerlink" title="(3) size()"></a>(3) size()</h4><p>&emsp;&emsp;size()用来获得 vector 中元素的个数，时间复杂度为O(1)。size()返回的是 unsigned 类型，不过一半来说用 %d 不会出现太大问题，这一点对所有 <strong>STL</strong> 容器都是一样的。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 3; i++) {
+        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
+    }
 
-mathjax        false                             是否开启数学公式支持 ，本文章是否开启 mathjax，且需要在主题的 _config.yml 文件中也需要开启才行
+    cout &lt;&lt; vi.size();
 
-summary          无                             文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>3</code></pre><h4 id="4-clear"><a href="#4-clear" class="headerlink" title="(4) clear()"></a>(4) clear()</h4><p>&emsp;&emsp;clear() 用来清空 vector 中的所有元素，时间复杂度为 O(N)，其中 N 为 vector 中元素的个数。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 3; i++) {
+        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
+    }
 
-categories       无                             文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类
-tags            无                              文章标签，一篇文章可以多个标签 
--->
+    vi.clear();
+    cout &lt;&lt; vi.size();
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>0</code></pre><h4 id="5-insert"><a href="#5-insert" class="headerlink" title="(5) insert()"></a>(5) insert()</h4><p>&emsp;&emsp;insert(it, x) 用来向 vector 的任意迭代器 it 处插入一个元素 x，时间复杂度为 O(N)。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 1; i &lt;= 5; i++) {
+        vi.push_back(i);    // 此时为 1 2 3 4 5
+    }
+
+    vi.insert(vi.begin() + 2, -1); // 将 -1 插入 vi[2] 的位置
+    for(vector&lt;int&gt;::iterator it; it != vi.end(); it++) {
+        cout &lt;&lt; it &lt;&lt; &quot; &quot;;
+    }
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>1 2 -1 3 4 5</code></pre><h4 id="6-erase"><a href="#6-erase" class="headerlink" title="(6) erase()"></a>(6) erase()</h4><p>&emsp;&emsp;erase() 有两种方法：删除单个元素，删除一个区间内的所有元素。时间复杂符均为 O(n)。</p>
+<p>&emsp;&emsp;① 删除单个元素。</p>
+<p>&emsp;&emsp;erase(it) 即删除迭代器 it 处的元素。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 5; i &lt;= 9; i++) {
+        vi.push_back(i);    // 插入 5 6 7 8 9
+    }
+    // 删除 8
+    vi.erase(vi.begin() + 3);
+    for(int i = 0; i &lt; vi.size(); i++) {
+        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;
+    }
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>5 6 7 9</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。</p>
+<p>&emsp;&emsp;erase(first, last) 即删除[first, end)内所有的元素。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main() {
+    vector&lt;int&gt; vi;
+    for(int i = 5; i &lt;= 9; i++) {
+        vi.push_back(i);    // 插入 5 6 7 8 9
+    }
+
+    vi.erase(vi.begin() + 1, vi.begin() + 4);    // 删除vi[1],vi[2],vi[3]
+
+    for(int i = 0; i &lt; vi.size(); i++) {
+        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;
+    }
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>5 9</code></pre><h3 id="vector-的常见用途"><a href="#vector-的常见用途" class="headerlink" title="vector 的常见用途"></a>vector 的常见用途</h3><h4 id="emsp-emsp-1-存储数据"><a href="#emsp-emsp-1-存储数据" class="headerlink" title="&emsp;&emsp;(1) 存储数据"></a>&emsp;&emsp;<strong>(1) 存储数据</strong></h4><p>&emsp;&emsp;① vector 本身可以作为数组使用，而且在一些元素个数不确定的场合可以很好地节省空间。</p>
+<p>&emsp;&emsp;② 有些场合需要根据一些条件把部分数据输出在同一行，数据中间用空格隔开。由于输出数据的个数是不确定的，为了更方便地处理最后一个满足条件的数据后面，不输出额外的空格，可以先用 vector 记录所有需要输出的数据，然后一次性输出。</p>
+<h4 id="emsp-emsp-2-用邻接表存储图"><a href="#emsp-emsp-2-用邻接表存储图" class="headerlink" title="&emsp;&emsp;(2) 用邻接表存储图"></a>&emsp;&emsp;<strong>(2) 用邻接表存储图</strong></h4><p>&emsp;&emsp;晚安。</p>
+
             </div>
             <hr/>
 
@@ -526,7 +673,7 @@ tags            无                              文章标签，一篇文章可�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-blog/">https://aizhouzhou.github.io/2019/11/13/wo-de-di-yi-pian-blog/</a>
+                    <a href="https://aizhouzhou.github.io/2019/11/16/day02/">https://aizhouzhou.github.io/2019/11/16/day02/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,8 +719,8 @@ tags            无                              文章标签，一篇文章可�
                                     <span class="chip bg-color">Markdown</span>
                                 </a>
                             
-                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                    <span class="chip bg-color">生活</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -1006,24 +1153,24 @@ tags            无                              文章标签，一篇文章可�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/15/day01/">
+                <a href="/2019/11/16/day03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="C++基础——对C的增强">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
                         
-                        <span class="card-title">C++基础——对C的增强</span>
+                        <span class="card-title">C++标准模板库(STL)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++基础
+                            STL之set
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
                         </span>
                         <span class="publish-author">
                             
@@ -1060,41 +1207,40 @@ tags            无                              文章标签，一篇文章可�
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/13/wo-de-di-yi-pian-blog/">
+                <a href="/2019/11/15/day01/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="我的第一篇博客">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="C++基础——对C的增强">
                         
-                        <span class="card-title">我的第一篇博客</span>
+                        <span class="card-title">C++基础——对C的增强</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            写博客的初衷
+                            C++基础
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1106,8 +1252,8 @@ tags            无                              文章标签，一篇文章可�
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                        <span class="chip bg-color">生活</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
