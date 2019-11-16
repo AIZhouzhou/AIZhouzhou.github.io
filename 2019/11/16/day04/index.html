@@ -5,9 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
-    <meta name="description" content="C++标准模板块(STL)介绍vector1. vector 的定义&amp;emsp;&amp;emsp;单独定义一个vectorvector&amp;lt;int&amp;gt; name;
-vector&amp;lt;double&amp;gt; name;
-vector&amp;lt;c">
+    <meta name="description" content="C++标准模板块(STL)介绍string&amp;emsp;&amp;emsp;在C语言中，一般使用字符数组char str[] 来存放字符串，但是使用字符数组有时会显得操作麻烦，而且容易因经验不足而产生一些错误。为了使编程者可以更方便地对字符串进行操作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -441,21 +439,21 @@ vector&amp;lt;c">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-15
+                    2019-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    13 分
                 </div>
                 
 				
@@ -471,183 +469,321 @@ vector&amp;lt;c">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="1-vector-的定义"><a href="#1-vector-的定义" class="headerlink" title="1. vector 的定义"></a>1. vector 的定义</h3><h4 id="emsp-emsp-单独定义一个vector"><a href="#emsp-emsp-单独定义一个vector" class="headerlink" title="&emsp;&emsp;单独定义一个vector"></a>&emsp;&emsp;单独定义一个vector</h4><pre><code>vector&lt;int&gt; name;
-vector&lt;double&gt; name;
-vector&lt;char&gt; name;
-vector&lt;node&gt; name;    // node是结构体类型
-vector&lt;vector&lt;typename&gt; &gt; name;    // &gt;&gt; 之间要有空格</code></pre><h4 id="emsp-emsp-定义vector数组的方法"><a href="#emsp-emsp-定义vector数组的方法" class="headerlink" title="&emsp;&emsp;定义vector数组的方法"></a>&emsp;&emsp;定义vector数组的方法</h4><pre><code>vector&lt;int&gt; vi[100];</code></pre><p>&emsp;&emsp;这样vi[0] - vi[99] 中每一个都是一个vector容器。</p>
-<h3 id="2-vector-容器内元素的访问"><a href="#2-vector-容器内元素的访问" class="headerlink" title="2. vector 容器内元素的访问"></a>2. vector 容器内元素的访问</h3><p>&emsp;&emsp;vector 一般有两种访问方式：通过下标访问或通过迭代器访问。</p>
-<h4 id="通过下标访问"><a href="#通过下标访问" class="headerlink" title="通过下标访问"></a>通过下标访问</h4><p>&emsp;&emsp;和访问普通的数组是一样的，对一个定义为 vector<typename> vi 的vector容器来说，直接访问 vi[index] 即可（如vi[0],vi[1]）。当然，这里下标是从 0 到 vi.size() - 1，访问这个范围以外的元素可能会运行报错。</p>
-<h4 id="通过迭代器访问"><a href="#通过迭代器访问" class="headerlink" title="通过迭代器访问"></a>通过迭代器访问</h4><p>&emsp;&emsp;迭代器(itreator)可以理解为一种类似指针的东西，其定义是：</p>
-<pre><code>vector&lt;typename&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样 it 就是一个 vector<typename>::iterator 类型的变量（虽然这个变量看起来很长），其中 typename 就是定义 vector 时填写的类型。下面是 typename 为 int 和 double的举例：</p>
-<pre><code>vector&lt;int&gt;::iterator it;
-vector&lt;double&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样就得到了迭代器 it，并且可以通过 *it 来访问 vector 里的元素。<br>例如，有这样定义的一个 vector 容器：</p>
-<pre><code>vector&lt;int&gt; vi;
-for(int i = 0; i &lt;= 5; i++) {
-    vi.push_back(i);    // push_back(i)在vi的末尾添加元素i，即依次添加 1 2 3 4 5
-}</code></pre><p>&emsp;&emsp;可以通过类似下标和指针访问数组的方式来访问容器内的元素：</p>
+                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>&emsp;&emsp;在C语言中，一般使用字符数组char str[] 来存放字符串，但是使用字符数组有时会显得操作麻烦，而且容易因经验不足而产生一些错误。为了使编程者可以更方便地对字符串进行操作，C++ 在 <strong>STL</strong> 中加入了 string 类型，对字符串常用的需求功能进行了封装，使得操作起来更方便，且不易出错。</p>
+<h3 id="1-string-的定义"><a href="#1-string-的定义" class="headerlink" title="1. string 的定义"></a>1. string 的定义</h3><p>&emsp;&emsp;定义 string 的方式跟基本数据类型相同，只需要在 string 后跟上变量名即可：</p>
+<pre><code>string str;</code></pre><p>&emsp;&emsp;如果要初始化，可以直接给 string 类型的变量进行赋值：</p>
+<pre><code>string str = &quot;abcd&quot;;</code></pre><h3 id="2-string-中内容的访问"><a href="#2-string-中内容的访问" class="headerlink" title="2. string 中内容的访问"></a>2. string 中内容的访问</h3><h4 id="1-通过下标访问"><a href="#1-通过下标访问" class="headerlink" title="(1) 通过下标访问"></a>(1) 通过下标访问</h4><p>&emsp;&emsp;一般来说，可以直接向字符数组那样去访问 string：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;string&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 5; i++) {
-        vi.push_back(i);
+    string str = &quot;abcd&quot;;
+    for(int i = 0; i &lt; str.length(); i++) {
+        cout &lt;&lt; str[i] &lt;&lt; &quot; &quot;;
     }
-    // vi.begin()为取 vi 的首元素地址，而 it 指向这个地址
-    vector&lt;int&gt;::iterator it = vi.begin();
-    for(int i = 0; i &lt; 5; i++) {
-        cout &lt;&lt; *(it + i) &lt;&lt; &quot; &quot;;    
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果</p>
-<pre><code>1 2 3 4 5</code></pre><p>&emsp;&emsp;从这里可以看出 <strong>v[i] 和 *(vi.begin() + i) 是等价的</strong>。<br>既然上面说到了begin()函数的作用为取 vi 的首地址元素，那么这里还要提到 end()函数。和begin()函数不同的是，end() 并不是取 vi 的尾元素地址，而是取尾元素地址的下一个地址。end()作为迭代器末尾标志，不存储任何元素。美国人思维比较<strong>左闭右开</strong>，在这里begin() 和 end()也是如此。</p>
-<p>&emsp;&emsp;除此之外，迭代器还实现了两种自加操作：++it 和 it++（自减操作同理），于是有了另一中遍历 vector 中元素的写法：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 5; i++) {
-        vi.push_back(i);
-    }
-
-    // vector 的迭代器不支持 it &lt; vi.end() 写法，因此循环条件只能用 it != vi.end()
-
-    for(vector&lt;int&gt;::iterator it = vi.begin(); it != vi.end(); it++) {
-        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;    
-    }
-
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2 3 4 5</code></pre><p>&emsp;&emsp;最后需要指出，在常用的 <strong>STL</strong> 容器中，只有在 <strong>vector</strong> 和 <strong>string</strong> 中，才允许使用 <strong>vi.begin() + 3 这种迭代器加上整数的写法</strong>。</p>
-<h3 id="3-vector-常用函数实例解析"><a href="#3-vector-常用函数实例解析" class="headerlink" title="3. vector 常用函数实例解析"></a>3. vector 常用函数实例解析</h3><h4 id="1-push-back"><a href="#1-push-back" class="headerlink" title="(1) push_back()"></a>(1) push_back()</h4><p>&emsp;&emsp;顾名思义，push_back(x)就是在 vector 后面添加一个元素 x，时间复杂度为O(1)。</p>
+<pre><code>a b c d</code></pre><p>&emsp;&emsp;如果要读入和输出整个字符串，则<strong>只能用cin 和 cout</strong>，我们可以使用 <strong>c_str()</strong> 将 string 类型转换为字符数组进行输出，示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str;
+    cin &gt;&gt; str;
+    cout &lt;&lt; str;
+
+    printf(&quot;%s&quot;,str.c_str());
+    return 0;
+}</code></pre><h4 id="2-通过迭代器访问"><a href="#2-通过迭代器访问" class="headerlink" title="(2) 通过迭代器访问"></a>(2) 通过迭代器访问</h4><p>&emsp;&emsp;一般通过 (1) 即可满足访问的要求，但是有些函数比如 insert() 和 erase() 则要求以迭代器为参数。</p>
+<p>&emsp;&emsp;由于 string 不想其他 <strong>STL</strong> 容器那样需要参数，因此可以直接如下定义：</p>
+<pre><code>string::iterator it;</code></pre><p>&emsp;&emsp; 这样就得到了迭代器 it，并且可以通过 *it 来访问 string 里的每一位：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str = &quot;abcd&quot;;
+
+    for(string::iterator it = str.begin(); it != str.end(); it++) {
+        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
+    }
+
+    cout &lt;&lt; *(str.begin() + 1);
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>a b c d b</code></pre><p>&emsp;&emsp;最后指出，<strong>string 和 vector一样，支持直接对迭代器进行加减某个数字</strong>，如 str.begin() + 3。</p>
+<h3 id="3-string-常用的函数实例解析"><a href="#3-string-常用的函数实例解析" class="headerlink" title="3. string 常用的函数实例解析"></a>3. string 常用的函数实例解析</h3><p>&emsp;&emsp;事实上，string 的函数有很多，但是有些函数并不常用，因此下面就几个常用的函数举例。</p>
+<h4 id="1-operator"><a href="#1-operator" class="headerlink" title="(1) operator+="></a>(1) operator+=</h4><p>&emsp;&emsp;这是 string 的加法，可以将两个或多个 string 拼接在一起。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;string&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
-    }
+    string str1 = &quot;abc&quot;, str2 = &quot;xyz&quot;, str3 = &quot;qwe&quot;, str4;
+    str4 = str1 + str2 + str3;
+    str1 += str2;
 
-    for(int i =0; i &lt; vi.size(); i++) {    // size() 函数会给出 vi 中元素的个数
-        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;    
-    }
+    cout &lt;&lt; str4 &lt;&lt; endl;
+    cout &lt;&lt; str1 &lt;&lt; endl;
 
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2 3</code></pre><h4 id="2-pop-back"><a href="#2-pop-back" class="headerlink" title="(2) pop_back()"></a>(2) pop_back()</h4><p>&emsp;&emsp;有添加就会有删除，pop_back()用以删除 vector 的尾元素，时间复杂度为 O(1)。</p>
+<pre><code>abcxyzqwe
+abcxyz</code></pre><h4 id="2-compare-operator"><a href="#2-compare-operator" class="headerlink" title="(2) compare operator"></a>(2) compare operator</h4><p>&emsp;&emsp;两个 string 类型可以直接使用 ==, !=, &lt;, &lt;=, &gt;, &gt;= 比较大小，比较规则是<strong>字典序</strong>。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;string&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
-    }
-
-    vi.pop_back();    // 删除 vi 的尾元素
-    for(vector&lt;int&gt;::iterator it = vi.begin(); it != vi.end(); it++) {    // size() 函数会给出 vi 中元素的个数
-        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;    
-    }
+    string str1 = &quot;aa&quot;, str2 = &quot;aaa&quot;, str3 = &quot;abc&quot;, str4 = &quot;xyz&quot;;
+    if(str1 &lt; str2) cout &lt;&lt; &quot;ok1!\n&quot;;
+    if(str1 != str3) cout &lt;&lt; &quot;ok2!\n&quot;;
+    if(str1 4= str3) cout &lt;&lt; &quot;ok3!\n&quot;;
 
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2</code></pre><h4 id="3-size"><a href="#3-size" class="headerlink" title="(3) size()"></a>(3) size()</h4><p>&emsp;&emsp;size()用来获得 vector 中元素的个数，时间复杂度为O(1)。size()返回的是 unsigned 类型，不过一半来说用 %d 不会出现太大问题，这一点对所有 <strong>STL</strong> 容器都是一样的。</p>
+<pre><code>ok1
+ok2
+ok2</code></pre><h4 id="3-length-size"><a href="#3-length-size" class="headerlink" title="(3) length()/size()"></a>(3) length()/size()</h4><p>&emsp;&emsp;length()返回 string 的长度，即存放的字符数，时间复杂度为 O(1)。size() 与 length() 基本相同。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>string str = &quot;abcxyz&quot;;
+cout &lt;&lt; str.length() &lt;&lt; &quot; &quot; &lt;&lt; str.size();</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>6 6</code></pre><h4 id="4-insert"><a href="#4-insert" class="headerlink" title="(4) insert()"></a>(4) insert()</h4><p>&emsp;&emsp;string 的 insert() 函数有很多写法，这里给出几个常用的写法，时间复杂度为 O(N)。</p>
+<p>&emsp;&emsp;① insert(pos, string)，在 pos 号位置插入字符串string。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>string str = &quot;abcxyz&quot;, str2 = &quot;opg&quot;;
+str.insert(3, str);    // 往str[3] 处位置插入 &quot;opg&quot;，这里 str2 的位置直接写&quot;opg&quot;也可以。
+cout &lt;&lt; str &lt;&lt; endl;</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>abcopgxyz</code></pre><p>&emsp;&emsp;② insert(it, it2, it3)，it 为原字符的欲插入位置，it2 和 it3 为待插字符的首尾迭代器，用来表示串 [it2, it3) 将被插入在 it 的位置上。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;string&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
-    }
 
-    cout &lt;&lt; vi.size();
+    string str1 = &quot;abcde&quot;, str2 = &quot;fghijk&quot;;
+    str1.insert(str1.begin(), str2.begin(), str2.end() - 1);    // 这三个参数，必须都是迭代器。
 
+    cout &lt;&lt; str1 &lt;&lt; endl;
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>3</code></pre><h4 id="4-clear"><a href="#4-clear" class="headerlink" title="(4) clear()"></a>(4) clear()</h4><p>&emsp;&emsp;clear() 用来清空 vector 中的所有元素，时间复杂度为 O(N)，其中 N 为 vector 中元素的个数。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
-    }
-
-    vi.clear();
-    cout &lt;&lt; vi.size();
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>0</code></pre><h4 id="5-insert"><a href="#5-insert" class="headerlink" title="(5) insert()"></a>(5) insert()</h4><p>&emsp;&emsp;insert(it, x) 用来向 vector 的任意迭代器 it 处插入一个元素 x，时间复杂度为 O(N)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 5; i++) {
-        vi.push_back(i);    // 此时为 1 2 3 4 5
-    }
-
-    vi.insert(vi.begin() + 2, -1); // 将 -1 插入 vi[2] 的位置
-    for(vector&lt;int&gt;::iterator it; it != vi.end(); it++) {
-        cout &lt;&lt; it &lt;&lt; &quot; &quot;;
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2 -1 3 4 5</code></pre><h4 id="6-erase"><a href="#6-erase" class="headerlink" title="(6) erase()"></a>(6) erase()</h4><p>&emsp;&emsp;erase() 有两种方法：删除单个元素，删除一个区间内的所有元素。时间复杂符均为 O(n)。</p>
+<pre><code>abcfghijkde</code></pre><h4 id="5-erase"><a href="#5-erase" class="headerlink" title="(5) erase()"></a>(5) erase()</h4><p>&emsp;&emsp;erase()有两种写法：删除单个元素，删除一个区间内的所有元素。时间复杂度均为 O(N)。</p>
 <p>&emsp;&emsp;① 删除单个元素。</p>
-<p>&emsp;&emsp;erase(it) 即删除迭代器 it 处的元素。</p>
+<p>&emsp;&emsp;str.erase(it) 用于删除单个元素，it为需要删除的元素的迭代器。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;string&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 5; i &lt;= 9; i++) {
-        vi.push_back(i);    // 插入 5 6 7 8 9
-    }
-    // 删除 8
-    vi.erase(vi.begin() + 3);
-    for(int i = 0; i &lt; vi.size(); i++) {
-        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;
-    }
+    string str = &quot;abcdefg&quot;;
+
+    str.erase(str.begin() + 4);    // 删除 4 号位。
+    cout &lt;&lt; str &lt;&lt; endl;
 
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>5 6 7 9</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;erase(first, last) 即删除[first, end)内所有的元素。</p>
+<pre><code>abcdfg</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。</p>
+<p>&emsp;&emsp;删除一个区间内所有的元素有两种方法：</p>
+<ul>
+<li>str.erase(first,last)，其中 first 为需要删除的区间的起始迭代器，而 last 则为需要删除的区间的末尾迭代器的下一个地址，也即为删除[first, last)。</li>
+</ul>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;string&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 5; i &lt;= 9; i++) {
-        vi.push_back(i);    // 插入 5 6 7 8 9
+    string str = &quot;abcdefg&quot;;
+
+    // 删除在 [str.begin() + 2, str.end() - 1) 内的元素，即cdef
+    str.erase(str.begin() + 2, str.end() - 1);
+    cout &lt;&lt; str &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>abg</code></pre><ul>
+<li>str.erase(pos, length)，其中 pos 为需要开始删除的起始位置，length 为删除的字符个数。</li>
+</ul>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str = &quot;abcdefg&quot;;
+
+    str.erase(3, 2);    // 删除从 3号位开始的2个字符，即 de
+    cout &lt;&lt; str &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>abcfg</code></pre><h4 id="6-clear"><a href="#6-clear" class="headerlink" title="(6) clear()"></a>(6) clear()</h4><p>&emsp;&emsp;clear() 用以清空 string 中的数据，时间复杂度为 O(1)。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str = &quot;abcd&quot;;
+
+    str.clear();    // 清空字符串
+    cout &lt;&lt; str.size();
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>0</code></pre><h4 id="7-substr"><a href="#7-substr" class="headerlink" title="(7) substr()"></a>(7) substr()</h4><p>&emsp;&emsp;substr(pos, length) 返回从 pos 号位开始，长度为 length 的字串，时间复杂度为 O(1)。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str = &quot;Thanks for your smile.&quot;;
+
+    cout &lt;&lt; str.substr(0, 6) &lt;&lt; endl;
+    cout &lt;&lt; str.substr(11, 4) &lt;&lt; endl;
+    cout &lt;&lt; str.substr(16, 5) &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>Thanks
+your
+smile</code></pre><h4 id="8-string-npos"><a href="#8-string-npos" class="headerlink" title="(8) string::npos"></a>(8) string::npos</h4><p>&emsp;&emsp;string::npos 是一个常数，其本身的值为 -1，但是由于是 unsigned_int 类型，因此实际上也可以认为是 unsigned_int 类型的最大值。<strong>string_npos 用以作为 find函数失配时的返回值</strong>。可以认为string::npos 等于 -1 或者 4294967295。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    if(string::npos == -1)
+        cout &lt;&lt; &quot;-1 is true.&quot; &lt;&lt; endl;
+
+    if(string::npos == 4294967295)
+        cout &lt;&lt; &quot;4294967295 is also true.&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>-1 is true.
+4294967295 is also true.</code></pre><h4 id="9-find"><a href="#9-find" class="headerlink" title="(9) find()"></a>(9) find()</h4><p>&emsp;&emsp;str.find(str2)，当 str2 是 str 的字串时，返回其在 str 第一次出现的位置；如果 str2 不是 str 的字串，那么返回string::npos。</p>
+<p>&emsp;&emsp;str.find(str2,pos)，从 str 的 pos 号开始匹配 str2，返回值与上相同。</p>
+<p>&emsp;&emsp;时间复杂度为 O(nm)，其中 n 和 m 分别为 str 和 str2 的长度。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str = &quot;Thank you for your smile.&quot;;
+    string str2 = &quot;you&quot;;
+    string str3 = &quot;me&quot;;
+
+    if(str.find(str2) != string::npos) {
+        cout &lt;&lt; str.find(str2) &lt;&lt; endl;
     }
 
-    vi.erase(vi.begin() + 1, vi.begin() + 4);    // 删除vi[1],vi[2],vi[3]
+    if(str.find(str2, 7) != string::npos) {
+        cout &lt;&lt; str.find(str2, 7) &lt;&lt; endl;
+    }
 
-    for(int i = 0; i &lt; vi.size(); i++) {
-        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;
+    if(str.find(str3) != string::npos) {
+        cout &lt;&lt; str.find(str3) &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; &quot;I know there is no position for me.&quot; &lt;&lt; endl;
     }
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>5 9</code></pre><h3 id="vector-的常见用途"><a href="#vector-的常见用途" class="headerlink" title="vector 的常见用途"></a>vector 的常见用途</h3><h4 id="emsp-emsp-1-存储数据"><a href="#emsp-emsp-1-存储数据" class="headerlink" title="&emsp;&emsp;(1) 存储数据"></a>&emsp;&emsp;<strong>(1) 存储数据</strong></h4><p>&emsp;&emsp;① vector 本身可以作为数组使用，而且在一些元素个数不确定的场合可以很好地节省空间。</p>
-<p>&emsp;&emsp;② 有些场合需要根据一些条件把部分数据输出在同一行，数据中间用空格隔开。由于输出数据的个数是不确定的，为了更方便地处理最后一个满足条件的数据后面，不输出额外的空格，可以先用 vector 记录所有需要输出的数据，然后一次性输出。</p>
-<h4 id="emsp-emsp-2-用邻接表存储图"><a href="#emsp-emsp-2-用邻接表存储图" class="headerlink" title="&emsp;&emsp;(2) 用邻接表存储图"></a>&emsp;&emsp;<strong>(2) 用邻接表存储图</strong></h4><p>&emsp;&emsp;晚安。</p>
+<pre><code>6
+14
+I know there is no position for me.</code></pre><h4 id="10-replace"><a href="#10-replace" class="headerlink" title="(10) replace()"></a>(10) replace()</h4><p>&emsp;&emsp;str.replace(pos, len, str2) 把 str 从 pos 号为开始，长度为 len 的字串替换为 str2。</p>
+<p>&emsp;&emsp;str.replace(it1, it2, str2) 把 str 的迭代器 [it1, it2) 范围的字串替换为 str2。</p>
+<p>&emsp;&emsp;时间复杂度为O(str.length())。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+    string str = &quot;Maybe you will turn around.&quot;;
+    string str2 = &quot;will not&quot;;
+    string str3 = &quot;Surely&quot;;
+
+    cout &lt;&lt; str.replace(10, 4, str2) &lt;&lt; endl;
+    cout &lt;&lt; str.replace(str.begin(), str.begin() + 5, str3) &lt;&lt; endl;
+    return 0;
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>Maybe you will not turn around.
+Surely you will not turn around.</code></pre><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="PTA-A1006-Are-They-Equal"><a href="#PTA-A1006-Are-They-Equal" class="headerlink" title="[PTA A1006] Are They Equal"></a>[PTA A1006] Are They Equal</h3><p>If a machine can save only 3 significant digits, the float numbers 12300 and 12358.9 are considered equal since they are both saved as 0.123×10^5 with simple chopping. Now given the number of significant digits on a machine and two float numbers, you are supposed to tell if they are treated equal in that machine.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case which gives three numbers N, A and B, where N (&lt;100) is the number of significant digits, and A and B are the two float numbers to be compared. Each float number is non-negative, no greater than 10^100, and that its total digit number is less than 100.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each test case, print in a line YES if the two numbers are treated equal, and then the number in the standard form 0.d[1]…d[N]*10^k (d[1]&gt;0 unless the number is 0); or NO if they are not treated equal, and then the two numbers in their standard form. All the terms must be separated by a space, with no extra space at the end of a line.</p>
+<p>Note: Simple chopping is assumed without rounding.</p>
+<p><strong>Sample Input 1:</strong></p>
+<p>3 12300 12358.9</p>
+<p><strong>Sample Output 1:</strong></p>
+<p>YES 0.123*10^5</p>
+<p><strong>Sample Input 2:</strong></p>
+<p>3 120 128</p>
+<p><strong>Sample Output 2:</strong></p>
+<p>NO 0.120<em>10^3 0.128</em>10^3</p>
+<p>思路分析：</p>
+<p>获取科学计数法的 主体 和 指数部分，然后分两种情况考虑：</p>
+<pre><code>① 0.a1a2a3a4···
+
+② b1b2···bm.a1a2a3···</code></pre><p>代码如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int n = 0; // 有效的位数 
+
+// 求出 主体 和 指数 
+string fun(string s, int &amp;e) {
+    int k = 0;
+    //  删除前导的 0
+    while(s.length() &gt; 0 &amp;&amp; s[0] == &#39;0&#39;) {
+        s.erase(s.begin());
+    }
+    // 判断 s 大于 1 还是 小于1
+    if(s[0] == &#39;.&#39;) {    //如果去掉前导 0 是 . 说明小于 1 
+        s.erase(s.begin());    // 删除 . 
+        while(s.length() &gt; 0 &amp;&amp; s[0] == &#39;0&#39;) {
+            s.erase(s.begin());    // 去掉小数点后的 0
+            e--;    // 去掉一个 0 ，指数 e-- 
+        }
+    } else {
+        // 否则 s 大于 0
+        while(k &lt; s.length() &amp;&amp; s[k] != &#39;.&#39;) { // 寻找小数点 
+            k++;
+            e++;    //指数 e++ 
+        }
+        if(s[k] == &#39;.&#39;) {
+            s.erase(s.begin() + k);    // 删除小数点 
+        }
+
+    }
+
+    // 如果去掉前导 0 长度为 0 说明这个数为 0   
+    if(s.length() == 0) {
+        e = 0;
+    }
+
+    int num = 0;
+    k = 0;
+    string res; 
+    // 下一步 根据 有效位数，来确定主体。
+    while(num &lt; n) {
+        if(k &lt; s.length()) res += s[k++];
+        else res += &quot;0&quot;;
+        num++;
+    }
+    return res;
+}
+int main() {
+    string s1, s2, s3, s4;
+    cin &gt;&gt; n &gt;&gt; s1 &gt;&gt; s2;
+    int e1 = 0, e2 = 0;
+    s3 = fun(s1, e1); 
+    s4 = fun(s2, e2);
+
+    if(s3 == s4 &amp;&amp; e1 == e2) {
+        cout &lt;&lt; &quot;YES 0.&quot; &lt;&lt; s3 &lt;&lt; &quot;*10^&quot; &lt;&lt; e1 &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; &quot;NO 0.&quot; &lt;&lt; s3 &lt;&lt; &quot;*10^&quot; &lt;&lt; e1 &lt;&lt; &quot; 0.&quot; &lt;&lt; s4 &lt;&lt; &quot;*10^&quot; &lt;&lt; e2 &lt;&lt; endl;
+    }
+
+    return 0;
+}</code></pre><p>&emsp;&emsp;晚安。</p>
 
             </div>
             <hr/>
@@ -673,7 +809,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/16/day02/">https://aizhouzhou.github.io/2019/11/16/day02/</a>
+                    <a href="https://aizhouzhou.github.io/2019/11/16/day04/">https://aizhouzhou.github.io/2019/11/16/day04/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1153,7 +1289,7 @@ int main() {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/16/day03/">
+                <a href="/2019/11/17/day05/">
                     <div class="card-image">
                         
                         
@@ -1165,12 +1301,12 @@ int main() {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之set
+                            STL之map
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
                         </span>
                         <span class="publish-author">
                             
@@ -1210,24 +1346,24 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/15/day01/">
+                <a href="/2019/11/16/day03/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="C++基础——对C的增强">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
                         
-                        <span class="card-title">C++基础——对C的增强</span>
+                        <span class="card-title">C++标准模板库(STL)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++基础
+                            STL之set
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
                             </span>
                         <span class="publish-author">
                             
