@@ -5,9 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
-    <meta name="description" content="C++标准模板块(STL)介绍vector1. vector 的定义&amp;emsp;&amp;emsp;单独定义一个vectorvector&amp;lt;int&amp;gt; name;
-vector&amp;lt;double&amp;gt; name;
-vector&amp;lt;c">
+    <meta name="description" content="C++标准模板块(STL)介绍queue&amp;emsp;&amp;emsp;queue 翻译为队列，在 STL 中主要是实现了一个先进先出的容器。
+1. queue 的定义queue&amp;lt;typename&amp;gt; name;2. queue 容器内元">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -434,28 +433,28 @@ vector&amp;lt;c">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-16
+                    2019-11-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-15
+                    2019-11-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    671
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    3 分
                 </div>
                 
 				
@@ -471,183 +470,80 @@ vector&amp;lt;c">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="1-vector-的定义"><a href="#1-vector-的定义" class="headerlink" title="1. vector 的定义"></a>1. vector 的定义</h3><h4 id="emsp-emsp-单独定义一个vector"><a href="#emsp-emsp-单独定义一个vector" class="headerlink" title="&emsp;&emsp;单独定义一个vector"></a>&emsp;&emsp;单独定义一个vector</h4><pre><code>vector&lt;int&gt; name;
-vector&lt;double&gt; name;
-vector&lt;char&gt; name;
-vector&lt;node&gt; name;    // node是结构体类型
-vector&lt;vector&lt;typename&gt; &gt; name;    // &gt;&gt; 之间要有空格</code></pre><h4 id="emsp-emsp-定义vector数组的方法"><a href="#emsp-emsp-定义vector数组的方法" class="headerlink" title="&emsp;&emsp;定义vector数组的方法"></a>&emsp;&emsp;定义vector数组的方法</h4><pre><code>vector&lt;int&gt; vi[100];</code></pre><p>&emsp;&emsp;这样vi[0] - vi[99] 中每一个都是一个vector容器。</p>
-<h3 id="2-vector-容器内元素的访问"><a href="#2-vector-容器内元素的访问" class="headerlink" title="2. vector 容器内元素的访问"></a>2. vector 容器内元素的访问</h3><p>&emsp;&emsp;vector 一般有两种访问方式：通过下标访问或通过迭代器访问。</p>
-<h4 id="通过下标访问"><a href="#通过下标访问" class="headerlink" title="通过下标访问"></a>通过下标访问</h4><p>&emsp;&emsp;和访问普通的数组是一样的，对一个定义为 vector<typename> vi 的vector容器来说，直接访问 vi[index] 即可（如vi[0],vi[1]）。当然，这里下标是从 0 到 vi.size() - 1，访问这个范围以外的元素可能会运行报错。</p>
-<h4 id="通过迭代器访问"><a href="#通过迭代器访问" class="headerlink" title="通过迭代器访问"></a>通过迭代器访问</h4><p>&emsp;&emsp;迭代器(itreator)可以理解为一种类似指针的东西，其定义是：</p>
-<pre><code>vector&lt;typename&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样 it 就是一个 vector<typename>::iterator 类型的变量（虽然这个变量看起来很长），其中 typename 就是定义 vector 时填写的类型。下面是 typename 为 int 和 double的举例：</p>
-<pre><code>vector&lt;int&gt;::iterator it;
-vector&lt;double&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样就得到了迭代器 it，并且可以通过 *it 来访问 vector 里的元素。<br>例如，有这样定义的一个 vector 容器：</p>
-<pre><code>vector&lt;int&gt; vi;
-for(int i = 0; i &lt;= 5; i++) {
-    vi.push_back(i);    // push_back(i)在vi的末尾添加元素i，即依次添加 1 2 3 4 5
-}</code></pre><p>&emsp;&emsp;可以通过类似下标和指针访问数组的方式来访问容器内的元素：</p>
+                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>&emsp;&emsp;queue 翻译为队列，在 <strong>STL</strong> 中主要是实现了一个先进先出的容器。</p>
+<h3 id="1-queue-的定义"><a href="#1-queue-的定义" class="headerlink" title="1. queue 的定义"></a>1. queue 的定义</h3><pre><code>queue&lt;typename&gt; name;</code></pre><h3 id="2-queue-容器内元素的访问"><a href="#2-queue-容器内元素的访问" class="headerlink" title="2. queue 容器内元素的访问"></a>2. queue 容器内元素的访问</h3><p>&emsp;&emsp;由于队列(queue)本身就是一种先进先出的限制性数据结构，因此在 STL 中<strong>只能通过 front() 来访问队首元素，或是通过 back() 来访问队尾元素</strong>。</p>
+<p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;queue&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
+    queue&lt;int&gt; q;
     for(int i = 1; i &lt;= 5; i++) {
-        vi.push_back(i);
+        q.push(i);    //push(i) 用以将 i 压入队列，因此依此入队 1 2 3 4 5
     }
-    // vi.begin()为取 vi 的首元素地址，而 it 指向这个地址
-    vector&lt;int&gt;::iterator it = vi.begin();
-    for(int i = 0; i &lt; 5; i++) {
-        cout &lt;&lt; *(it + i) &lt;&lt; &quot; &quot;;    
-    }
+    cout &lt;&lt; q.front() &lt;&lt; &quot; &quot; &lt;&lt; q.back();    // 输出结果 1 5
 
     return 0;
-}</code></pre><p>&emsp;&emsp;输出结果</p>
-<pre><code>1 2 3 4 5</code></pre><p>&emsp;&emsp;从这里可以看出 <strong>v[i] 和 *(vi.begin() + i) 是等价的</strong>。<br>既然上面说到了begin()函数的作用为取 vi 的首地址元素，那么这里还要提到 end()函数。和begin()函数不同的是，end() 并不是取 vi 的尾元素地址，而是取尾元素地址的下一个地址。end()作为迭代器末尾标志，不存储任何元素。美国人思维比较<strong>左闭右开</strong>，在这里begin() 和 end()也是如此。</p>
-<p>&emsp;&emsp;除此之外，迭代器还实现了两种自加操作：++it 和 it++（自减操作同理），于是有了另一中遍历 vector 中元素的写法：</p>
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>1 5</code></pre><h3 id="3-queue-常用的函数示例解析"><a href="#3-queue-常用的函数示例解析" class="headerlink" title="3. queue 常用的函数示例解析"></a>3. queue 常用的函数示例解析</h3><h4 id="1-push"><a href="#1-push" class="headerlink" title="(1) push()"></a>(1) push()</h4><p>&emsp;&emsp;push(x) 将 x 进行入队，时间复杂度为 O(1)。</p>
+<h4 id="2-front-back"><a href="#2-front-back" class="headerlink" title="(2) front(), back()"></a>(2) front(), back()</h4><p>&emsp;&emsp;front() 和 back() 分别获得队首元素和队尾元素，时间复杂度为 O(1)。</p>
+<h4 id="3-pop"><a href="#3-pop" class="headerlink" title="(3) pop()"></a>(3) pop()</h4><p>&emsp;&emsp;pop() 令队首元素出队，时间复杂度为 O(1)</p>
+<p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;queue&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
+    queue&lt;int&gt; q;
     for(int i = 1; i &lt;= 5; i++) {
-        vi.push_back(i);
+        q.push(i);    //push(i) 用以将 i 压入队列，因此依此入队 1 2 3 4 5
     }
 
-    // vector 的迭代器不支持 it &lt; vi.end() 写法，因此循环条件只能用 it != vi.end()
-
-    for(vector&lt;int&gt;::iterator it = vi.begin(); it != vi.end(); it++) {
-        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;    
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2 3 4 5</code></pre><p>&emsp;&emsp;最后需要指出，在常用的 <strong>STL</strong> 容器中，只有在 <strong>vector</strong> 和 <strong>string</strong> 中，才允许使用 <strong>vi.begin() + 3 这种迭代器加上整数的写法</strong>。</p>
-<h3 id="3-vector-常用函数实例解析"><a href="#3-vector-常用函数实例解析" class="headerlink" title="3. vector 常用函数实例解析"></a>3. vector 常用函数实例解析</h3><h4 id="1-push-back"><a href="#1-push-back" class="headerlink" title="(1) push_back()"></a>(1) push_back()</h4><p>&emsp;&emsp;顾名思义，push_back(x)就是在 vector 后面添加一个元素 x，时间复杂度为O(1)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
     for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
+        q.pop(); //出队首元素三次(即依此出队 1 2 3)；
     }
-
-    for(int i =0; i &lt; vi.size(); i++) {    // size() 函数会给出 vi 中元素的个数
-        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;    
-    }
+    cout &lt;&lt; q.front();
 
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2 3</code></pre><h4 id="2-pop-back"><a href="#2-pop-back" class="headerlink" title="(2) pop_back()"></a>(2) pop_back()</h4><p>&emsp;&emsp;有添加就会有删除，pop_back()用以删除 vector 的尾元素，时间复杂度为 O(1)。</p>
+<pre><code>4</code></pre><h4 id="4-empty"><a href="#4-empty" class="headerlink" title="(4) empty()"></a>(4) empty()</h4><p>&emsp;&emsp;empty() 检测 queue 是否为空，返回 true 为空，返回 false 则非空。时间复杂度为 O(1)。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;queue&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
+    queue&lt;int&gt; q;
+    if(q.empty() == true) {    // 一开始队列内没有元素，所以为空
+        cout &lt;&lt; &quot;Empty\n&quot;;
+    } else {
+        cout &lt;&lt; &quot;Not Empty\n&quot;;
     }
+    q.push(1);
 
-    vi.pop_back();    // 删除 vi 的尾元素
-    for(vector&lt;int&gt;::iterator it = vi.begin(); it != vi.end(); it++) {    // size() 函数会给出 vi 中元素的个数
-        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;    
+    if(q.empty() == true) {// 在入队 &quot;1&quot;后，队列非空
+        cout &lt;&lt; &quot;Empty\n&quot;;
+    } else {
+        cout &lt;&lt; &quot;Not Empty\n&quot;;
     }
-
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2</code></pre><h4 id="3-size"><a href="#3-size" class="headerlink" title="(3) size()"></a>(3) size()</h4><p>&emsp;&emsp;size()用来获得 vector 中元素的个数，时间复杂度为O(1)。size()返回的是 unsigned 类型，不过一半来说用 %d 不会出现太大问题，这一点对所有 <strong>STL</strong> 容器都是一样的。</p>
+<pre><code>Empty
+Not Empty</code></pre><h4 id="5-size"><a href="#5-size" class="headerlink" title="(5) size()"></a>(5) size()</h4><p>&emsp;&emsp;size()返回 queue 内元素的个数，时间复杂度为 O(1)。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
+#include&lt;queue&gt;
 using namespace std;
 int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
-    }
-
-    cout &lt;&lt; vi.size();
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>3</code></pre><h4 id="4-clear"><a href="#4-clear" class="headerlink" title="(4) clear()"></a>(4) clear()</h4><p>&emsp;&emsp;clear() 用来清空 vector 中的所有元素，时间复杂度为 O(N)，其中 N 为 vector 中元素的个数。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 1; i &lt;= 3; i++) {
-        vi.push_back(i);    // 将 1 2 3 依次插入 vi 末尾
-    }
-
-    vi.clear();
-    cout &lt;&lt; vi.size();
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>0</code></pre><h4 id="5-insert"><a href="#5-insert" class="headerlink" title="(5) insert()"></a>(5) insert()</h4><p>&emsp;&emsp;insert(it, x) 用来向 vector 的任意迭代器 it 处插入一个元素 x，时间复杂度为 O(N)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
+    queue&lt;int&gt; q;
     for(int i = 1; i &lt;= 5; i++) {
-        vi.push_back(i);    // 此时为 1 2 3 4 5
+        q.push(i);
     }
-
-    vi.insert(vi.begin() + 2, -1); // 将 -1 插入 vi[2] 的位置
-    for(vector&lt;int&gt;::iterator it; it != vi.end(); it++) {
-        cout &lt;&lt; it &lt;&lt; &quot; &quot;;
-    }
+    cout &lt;&lt; q.size();
 
     return 0;
 }</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>1 2 -1 3 4 5</code></pre><h4 id="6-erase"><a href="#6-erase" class="headerlink" title="(6) erase()"></a>(6) erase()</h4><p>&emsp;&emsp;erase() 有两种方法：删除单个元素，删除一个区间内的所有元素。时间复杂符均为 O(n)。</p>
-<p>&emsp;&emsp;① 删除单个元素。</p>
-<p>&emsp;&emsp;erase(it) 即删除迭代器 it 处的元素。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 5; i &lt;= 9; i++) {
-        vi.push_back(i);    // 插入 5 6 7 8 9
-    }
-    // 删除 8
-    vi.erase(vi.begin() + 3);
-    for(int i = 0; i &lt; vi.size(); i++) {
-        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>5 6 7 9</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;erase(first, last) 即删除[first, end)内所有的元素。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main() {
-    vector&lt;int&gt; vi;
-    for(int i = 5; i &lt;= 9; i++) {
-        vi.push_back(i);    // 插入 5 6 7 8 9
-    }
-
-    vi.erase(vi.begin() + 1, vi.begin() + 4);    // 删除vi[1],vi[2],vi[3]
-
-    for(int i = 0; i &lt; vi.size(); i++) {
-        cout &lt;&lt; vi[i] &lt;&lt; &quot; &quot;;
-    }
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>5 9</code></pre><h3 id="vector-的常见用途"><a href="#vector-的常见用途" class="headerlink" title="vector 的常见用途"></a>vector 的常见用途</h3><h4 id="emsp-emsp-1-存储数据"><a href="#emsp-emsp-1-存储数据" class="headerlink" title="&emsp;&emsp;(1) 存储数据"></a>&emsp;&emsp;<strong>(1) 存储数据</strong></h4><p>&emsp;&emsp;① vector 本身可以作为数组使用，而且在一些元素个数不确定的场合可以很好地节省空间。</p>
-<p>&emsp;&emsp;② 有些场合需要根据一些条件把部分数据输出在同一行，数据中间用空格隔开。由于输出数据的个数是不确定的，为了更方便地处理最后一个满足条件的数据后面，不输出额外的空格，可以先用 vector 记录所有需要输出的数据，然后一次性输出。</p>
-<h4 id="emsp-emsp-2-用邻接表存储图"><a href="#emsp-emsp-2-用邻接表存储图" class="headerlink" title="&emsp;&emsp;(2) 用邻接表存储图"></a>&emsp;&emsp;<strong>(2) 用邻接表存储图</strong></h4><p>&emsp;&emsp;晚安。</p>
+<pre><code>5</code></pre><h3 id="4-queue-的常见用途"><a href="#4-queue-的常见用途" class="headerlink" title="4. queue 的常见用途"></a>4. queue 的常见用途</h3><p>&emsp;&emsp;当需要实现广度优先搜索时，可以不用手动实现一个队列，而是用 queue 作为代替，以提高程序的准确性。</p>
+<p>&emsp;&emsp;另外有一点注意的是：<strong>使用 front() 和 pop() 函数前，必须用 empty() 判断队列是否为空</strong>，否则可能因为队空而出现异常。</p>
+<p>&emsp;&emsp;晚安。</p>
 
             </div>
             <hr/>
@@ -673,7 +569,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/16/day02/">https://aizhouzhou.github.io/2019/11/16/day02/</a>
+                    <a href="https://aizhouzhou.github.io/2019/11/17/queue/">https://aizhouzhou.github.io/2019/11/17/queue/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1153,7 +1049,7 @@ int main() {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/16/day03/">
+                <a href="/2019/11/17/priority-queue/">
                     <div class="card-image">
                         
                         
@@ -1165,12 +1061,12 @@ int main() {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之set
+                            STL之priority_queue
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
                         </span>
                         <span class="publish-author">
                             
@@ -1210,24 +1106,24 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/15/day01/">
+                <a href="/2019/11/17/map/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="C++基础——对C的增强">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
                         
-                        <span class="card-title">C++基础——对C的增强</span>
+                        <span class="card-title">C++标准模板库(STL)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++基础
+                            STL之map
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
                             </span>
                         <span class="publish-author">
                             
@@ -1403,7 +1299,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">10.1k</span>&nbsp;字
+                class="white-color">12.8k</span>&nbsp;字
             
             
             
