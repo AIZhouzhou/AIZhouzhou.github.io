@@ -34,6 +34,35 @@
     
     <entry>
       <title>C++标准模板库(STL)</title>
+      <link href="/2019/11/17/pair/"/>
+      <url>/2019/11/17/pair/</url>
+      
+        <content type="html"><![CDATA[<h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h2><p>&emsp;&emsp;pair 是一个很实用的”小玩意”，当想要将两个元素绑在一起作为一个合成元素，又不想要因此定义结构体时，使用 pair 可以很方便地作为一个替代品。也就是说，pair 实际上可以看作一个内部有两个元素的结构体，且这两个元素的类型是可以指定的，如下面的短代码所示：</p><pre><code>struct pair {    typeName1 first;    typeName2 second;};</code></pre><h3 id="1-pair-的定义"><a href="#1-pair-的定义" class="headerlink" title="1. pair 的定义"></a>1. pair 的定义</h3><p>&emsp;&emsp;pair 有两个参数，分别对应 first 和 second 的数据类型，他们可以是任意基本数据类型或容器。</p><pre><code>pair&lt;typeName1, typeName2&gt; name;</code></pre><p>&emsp;&emsp;因此，想要定义参数为 string 和 int 类型的 pair，就可以使用如下写法：</p><pre><code>pair&lt;string, int&gt; p;</code></pre><p>&emsp;&emsp;如果想在定义 pair 时进行初始化，只需要跟上一个小括号，里面填写两个想要初始化元素即可：</p><pre><code>pair&lt;string, int&gt; p(&quot;haha&quot;, 5);</code></pre><p>&emsp;&emsp;而如果想在代码中临时构建一个 pair，有如下两种方法：</p><p>&emsp;&emsp;① 将类型定义写在前面，后面用小括号内两个元素的方式。</p><pre><code>pair&lt;string, int&gt;(&quot;haha&quot;, 5);</code></pre><p>&emsp;&emsp;② 使用自带的 make_pair 函数。</p><pre><code>make_pair(&quot;haha&quot;, 5);</code></pre><h3 id="2-pair-中元素的访问"><a href="#2-pair-中元素的访问" class="headerlink" title="2. pair 中元素的访问"></a>2. pair 中元素的访问</h3><p>&emsp;&emsp;pair 中只有两个元素，分别是 first 和 second，只需要按正常结构体的方式去访问即可。</p><p>&emsp;&emsp;示例如下：</p><pre><code>#include&lt;iostream&gt;#include&lt;utility&gt;#include&lt;string&gt;using namespace std;int main() {    pair&lt;string, int&gt; p;    p.first = &quot;haha&quot;;    p.second = 5;    cout &lt;&lt; p.first &lt;&lt; &quot; &quot; &lt;&lt; p.second &lt;&lt; endl;    p = make_pair(&quot;xixi&quot;, 55);    cout &lt;&lt; p.first &lt;&lt; &quot; &quot; &lt;&lt; p.second &lt;&lt; endl;    p = pair&lt;string, int&gt; (&quot;heihei&quot;, 555);    cout &lt;&lt; p.first &lt;&lt; &quot; &quot; &lt;&lt; p.second &lt;&lt; endl;    return 0;    }</code></pre><p>&emsp;&emsp;输出结果：</p><pre><code>haha 5xixi 55heihei 555</code></pre><h3 id="3-pair-常用函数示例解析"><a href="#3-pair-常用函数示例解析" class="headerlink" title="3. pair 常用函数示例解析"></a>3. pair 常用函数示例解析</h3><h4 id="比较操作数"><a href="#比较操作数" class="headerlink" title="比较操作数"></a>比较操作数</h4><p>&emsp;&emsp;两个 pair 类型数据就可以直接使用 ==，!=，&lt;，&lt;=，&gt;，&gt;= 比较大小，比较规则是<strong>先以 first 的大小作为标准，只有当 first 相等时才去判别 second 的大小</strong>。</p><p>&emsp;&emsp;示例如下：</p><pre><code>#include&lt;iostream&gt;#include&lt;utility&gt;using namespace std;int main() {    pair&lt;int, int&gt; p1(5, 10);    pair&lt;int, int&gt; p2(5, 15);    pair&lt;int, int&gt; p3(10, 5);    if(p1 &lt; p3) cout &lt;&lt; &quot;p1 &lt; p3\n&quot;;    if(p1 &lt;= p3) cout &lt;&lt; &quot;p1 &lt;= p3\n&quot;;    if(p1 &lt; p2) cout &lt;&lt; &quot;p1 &lt; p2\n&quot;;    return 0;    }</code></pre><p>&emsp;&emsp;输出结果：</p><pre><code>p1 &lt; p3p1 &lt;= p3p1 &lt; p2</code></pre><h3 id="4-pair-的常见用途"><a href="#4-pair-的常见用途" class="headerlink" title="4. pair 的常见用途"></a>4. pair 的常见用途</h3><p>&emsp;&emsp;关于 pair 有两种比较常见的例子：</p><p>&emsp;&emsp;① 用来代替二元结构体及其构造函数，可以节省编码时间。</p><p>&emsp;&emsp;② 作为 map 的键值对来进行插入，例如下面的例子。</p><pre><code>#include&lt;iostream&gt;#include&lt;string&gt;#include&lt;map&gt;int main() {    map&lt;string, int&gt; mp;    mp.insert(make_pair(&quot;heihie&quot;, 5));    mp.insert(pair&lt;string, int&gt;(&quot;haha&quot;, 10));    for(map&lt;string, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {        cout &lt;&lt; it -&gt; first &lt;&lt; &quot; &quot; &lt;&lt; it -&gt; second &lt;&lt; endl;    }    return 0;} </code></pre><p>&emsp;&emsp;输出结果：</p><pre><code>haha 10heihie 5</code></pre><p>&emsp;晚安。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Typora </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++标准模板库(STL)</title>
       <link href="/2019/11/17/priority-queue/"/>
       <url>/2019/11/17/priority-queue/</url>
       

@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
-    <meta name="description" content="C++标准模板块(STL)介绍map&amp;emsp;&amp;emsp;map翻译为映射，也是常用的 STL 容器。从所周知，在定义数组时(如 int array[100])，其实就是一个从 int 型到 int型的映射，比如 array[0] = 2">
+    <meta name="description" content="C++标准模板块(STL)介绍pair&amp;emsp;&amp;emsp;pair 是一个很实用的”小玩意”，当想要将两个元素绑在一起作为一个合成元素，又不想要因此定义结构体时，使用 pair 可以很方便地作为一个替代品。也就是说，pair 实际上可以">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -439,21 +439,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-17
+                    2019-11-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    804
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    3 分
                 </div>
                 
 				
@@ -469,137 +469,73 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>&emsp;&emsp;map翻译为映射，也是常用的 <strong>STL</strong> 容器。从所周知，在定义数组时(如 int array[100])，其实就是一个从 int 型到 int型的映射，比如 array[0] = 25，array[4] = 36 就分别是将 0 映射到 25，将 4 映射到 36。一个 double 型数组则是将 int 型映射到 double 型，例如 db[0] = 3.14，db[1] = 0.01。但是，无论是什么类型，它总是将 int型映射到其他类型。这似乎表现出一个弊端：当需要以其他类型作为关键字来做映射时，会显得不太方便。例如有一本字典，上面提供了很多的字符串对应的页码，如果要用数组来表示 “字符串 –&gt; 页码” 这样的对应关系，就会感觉不太友好。这时，我们的map就派上用场了，因为 <strong>map 可以将任何基本类型(包括STL容器)映射到任何基本类型(包括STL容器)</strong>，也就可以建立 string型到 int型的映射了。</p>
-<h3 id="1-map-的定义"><a href="#1-map-的定义" class="headerlink" title="1. map 的定义"></a>1. map 的定义</h3><p>&emsp;&emsp;单独定义一个map：</p>
-<pre><code>map&lt;typenmae, typename&gt; mp;</code></pre><p>&emsp;&emsp;map 和其他 <strong>STL</strong> 容器在定义上有点不一样，因为 map 需要确定映射前类型(键：key)和映射后类型(值：value)，所以需要在 &lt;&gt; 内填写两个类型，其中第一个是键的类型，第二个是值的类型。如果是 int型 映射到 int型，就是相当于是普通的 int数组。</p>
-<p>&emsp;&emsp;而如果是字符串到整型的映射，<strong>必须使用 string 而不能用 char数组</strong>：</p>
-<pre><code>map&lt;string, int&gt; mp;</code></pre><p>&emsp;&emsp;这是因为 char 数组作为数组，是不能被作为键值的，如果想用字符串做映射，必须用 string</p>
-<p>&emsp;&emsp;前面也说到，map 的键和值也可以是 <strong>STL</strong> 容器，例如可以将一个 set容器映射到一个字符串：</p>
-<pre><code>map&lt;set&lt;int&gt;, string&gt; mp;</code></pre><h3 id="2-map-容器内元素的访问"><a href="#2-map-容器内元素的访问" class="headerlink" title="2. map 容器内元素的访问"></a>2. map 容器内元素的访问</h3><p>&emsp;&emsp;map 一般有两种访问方式：通过下标访问或者通过迭代器访问。</p>
-<h4 id="1-通过下标访问"><a href="#1-通过下标访问" class="headerlink" title="(1) 通过下标访问"></a>(1) 通过下标访问</h4><p>&emsp;&emsp;和访问普通的数组是一样的，例如对一个定义为 map&lt;char, int&gt; mp 的map来说，就可以直接使用 mp[‘c’] 的方式来访问它对应的整数。于是，当建立映射时，就可以直接使用 mp[‘c’] = 20，这样普通数组一样的方式。但是要注意的是，<strong>map中的键是唯一的</strong>，也就是说，下面的代码将输出 30：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;c&#39;] = 20;
-    mp[&#39;c&#39;] = 30;    // 20 被覆盖
-
-cout &lt;&lt; mp[&#39;c&#39;];
-    return 0;
-}</code></pre><h4 id="2-通过迭代器访问"><a href="#2-通过迭代器访问" class="headerlink" title="(2) 通过迭代器访问"></a>(2) 通过迭代器访问</h4><p>&emsp;&emsp;map 迭代器的定义和其他 <strong>STL</strong> 容器迭代器定义的方式相同：</p>
-<pre><code>map&lt;typename1, typename2&gt;::iterator it;</code></pre><p>&emsp;&emsp;typename1 和 typename2 就是定义 map时填写的类型，这样就得到了迭代器it。</p>
-<p>&emsp;&emsp;map 迭代器的使用方式和其他 <strong>STL</strong>容器的迭代器不同，因为 map 的每一对映射都有两个typename，这决定了必须能通过一个 it 来同时访问键和值。事实上，<strong>map 可以使用 it-&gt;first来访问键，使用 it-&gt;second 来访问值</strong>。</p>
-<p>&emsp;&emsp;来看下面这个示例：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;m&#39;] = 20;
-    mp[&#39;r&#39;] = 30;
-    mp[&#39;a&#39;] = 40;
-    for(map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++){
-        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    }
-    return 0;
-}</code></pre><p>&emsp;&emsp;在上面这个例子中，it-&gt;first 是当前映射的键，it-&gt;second 是当前映射的值。程序的输出如下：</p>
-<pre><code>a 40
-m 20
-r 30</code></pre><p>&emsp;&emsp;接下来似乎发现了一个很有意思的现象，<strong>map会以键从小到大的顺序自动排序，</strong>即按 a &lt; m &lt; r 的顺序排序这三对映射。这是由于 map 内部是使用红黑树实现的(set 也是)，在建立映射的过程中会自动实现从小到大的排序功能。</p>
-<h3 id="map-常用函数实例解析"><a href="#map-常用函数实例解析" class="headerlink" title="map 常用函数实例解析"></a>map 常用函数实例解析</h3><h4 id="1-find"><a href="#1-find" class="headerlink" title="(1) find()"></a>(1) find()</h4><p>&emsp;&emsp;find(key) 返回键为 key 的映射的迭代器，时间复杂度为 O(logN)，N 为 map 中映射的个数。示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-    map&lt;char, int&gt;::iterator it = mp.find(&#39;b&#39;);
-
-    cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>b 2</code></pre><h4 id="2-erase"><a href="#2-erase" class="headerlink" title="(2) erase()"></a>(2) erase()</h4><p>&emsp;&emsp;erase() 有两种方法：删除单个元素，删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;① 删除单个元素。</p>
-<p>&emsp;&emsp;删除单个元素有两种方法：</p>
-<ul>
-<li>mp.erase(it)，it 为需要删除的元素的迭代器。时间复杂度为 O(1)。</li>
-</ul>
+                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h2><p>&emsp;&emsp;pair 是一个很实用的”小玩意”，当想要将两个元素绑在一起作为一个合成元素，又不想要因此定义结构体时，使用 pair 可以很方便地作为一个替代品。也就是说，pair 实际上可以看作一个内部有两个元素的结构体，且这两个元素的类型是可以指定的，如下面的短代码所示：</p>
+<pre><code>struct pair {
+    typeName1 first;
+    typeName2 second;
+};</code></pre><h3 id="1-pair-的定义"><a href="#1-pair-的定义" class="headerlink" title="1. pair 的定义"></a>1. pair 的定义</h3><p>&emsp;&emsp;pair 有两个参数，分别对应 first 和 second 的数据类型，他们可以是任意基本数据类型或容器。</p>
+<pre><code>pair&lt;typeName1, typeName2&gt; name;</code></pre><p>&emsp;&emsp;因此，想要定义参数为 string 和 int 类型的 pair，就可以使用如下写法：</p>
+<pre><code>pair&lt;string, int&gt; p;</code></pre><p>&emsp;&emsp;如果想在定义 pair 时进行初始化，只需要跟上一个小括号，里面填写两个想要初始化元素即可：</p>
+<pre><code>pair&lt;string, int&gt; p(&quot;haha&quot;, 5);</code></pre><p>&emsp;&emsp;而如果想在代码中临时构建一个 pair，有如下两种方法：</p>
+<p>&emsp;&emsp;① 将类型定义写在前面，后面用小括号内两个元素的方式。</p>
+<pre><code>pair&lt;string, int&gt;(&quot;haha&quot;, 5);</code></pre><p>&emsp;&emsp;② 使用自带的 make_pair 函数。</p>
+<pre><code>make_pair(&quot;haha&quot;, 5);</code></pre><h3 id="2-pair-中元素的访问"><a href="#2-pair-中元素的访问" class="headerlink" title="2. pair 中元素的访问"></a>2. pair 中元素的访问</h3><p>&emsp;&emsp;pair 中只有两个元素，分别是 first 和 second，只需要按正常结构体的方式去访问即可。</p>
 <p>&emsp;&emsp;示例如下：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
+#include&lt;utility&gt;
+#include&lt;string&gt;
+using namespace std;
+
+int main() {
+    pair&lt;string, int&gt; p;
+    p.first = &quot;haha&quot;;
+    p.second = 5;
+    cout &lt;&lt; p.first &lt;&lt; &quot; &quot; &lt;&lt; p.second &lt;&lt; endl;
+    p = make_pair(&quot;xixi&quot;, 55);
+    cout &lt;&lt; p.first &lt;&lt; &quot; &quot; &lt;&lt; p.second &lt;&lt; endl;
+    p = pair&lt;string, int&gt; (&quot;heihei&quot;, 555);
+    cout &lt;&lt; p.first &lt;&lt; &quot; &quot; &lt;&lt; p.second &lt;&lt; endl;
+    return 0;    
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>haha 5
+xixi 55
+heihei 555</code></pre><h3 id="3-pair-常用函数示例解析"><a href="#3-pair-常用函数示例解析" class="headerlink" title="3. pair 常用函数示例解析"></a>3. pair 常用函数示例解析</h3><h4 id="比较操作数"><a href="#比较操作数" class="headerlink" title="比较操作数"></a>比较操作数</h4><p>&emsp;&emsp;两个 pair 类型数据就可以直接使用 ==，!=，&lt;，&lt;=，&gt;，&gt;= 比较大小，比较规则是<strong>先以 first 的大小作为标准，只有当 first 相等时才去判别 second 的大小</strong>。</p>
+<p>&emsp;&emsp;示例如下：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;utility&gt;
 using namespace std;
 int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-    map&lt;char, int&gt;::iterator it = mp.find(&#39;b&#39;);
+    pair&lt;int, int&gt; p1(5, 10);
+    pair&lt;int, int&gt; p2(5, 15);
+    pair&lt;int, int&gt; p3(10, 5);
 
-    mp.erase(it);    // 删除 b 2
-    for(map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {
-        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
+    if(p1 &lt; p3) cout &lt;&lt; &quot;p1 &lt; p3\n&quot;;
+    if(p1 &lt;= p3) cout &lt;&lt; &quot;p1 &lt;= p3\n&quot;;
+    if(p1 &lt; p2) cout &lt;&lt; &quot;p1 &lt; p2\n&quot;;
+
+    return 0;    
+}</code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>p1 &lt; p3
+p1 &lt;= p3
+p1 &lt; p2</code></pre><h3 id="4-pair-的常见用途"><a href="#4-pair-的常见用途" class="headerlink" title="4. pair 的常见用途"></a>4. pair 的常见用途</h3><p>&emsp;&emsp;关于 pair 有两种比较常见的例子：</p>
+<p>&emsp;&emsp;① 用来代替二元结构体及其构造函数，可以节省编码时间。</p>
+<p>&emsp;&emsp;② 作为 map 的键值对来进行插入，例如下面的例子。</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;string&gt;
+#include&lt;map&gt;
+int main() {
+    map&lt;string, int&gt; mp;
+    mp.insert(make_pair(&quot;heihie&quot;, 5));
+    mp.insert(pair&lt;string, int&gt;(&quot;haha&quot;, 10));
+
+    for(map&lt;string, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {
+        cout &lt;&lt; it -&gt; first &lt;&lt; &quot; &quot; &lt;&lt; it -&gt; second &lt;&lt; endl;
     }
 
     return 0;
-}</code></pre><p>&emsp;&emsp;输出内容如下：</p>
-<pre><code>a 1
-c 3</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;mp.erase(first, last)，其中 first 为需要删除的区间的起始迭代器，而 last 则为需要删除的区间的末尾的迭代器的下一个地址，也即为删除左闭右开的区间[first, second)。时间复杂度为 O(last - first)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-    map&lt;char, int&gt;::iterator it = mp.find(&#39;b&#39;);    // 令 it 指向键为 b 的映射
-
-    mp.erase(it, mp.end());    // 删除 it 之后的所有映射，即 b 2 和 c 3
-    for(map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {
-        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>a 1</code></pre><h4 id="3-size"><a href="#3-size" class="headerlink" title="(3) size()"></a>(3) size()</h4><p>&emsp;&emsp;size() 用来获得 map 中映射的对数，时间复杂度为 O(1)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-
-    cout &lt;&lt; mp.size() &lt;&lt; endl;
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>3</code></pre><h4 id="4-clear"><a href="#4-clear" class="headerlink" title="(4) clear()"></a>(4) clear()</h4><p>&emsp;&emsp;clear() 用来清空 map 中的所有元素，复杂度为 O(N)，其中 N 为 map 中元素的个数。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-
-    mp.clear();
-    cout &lt;&lt; mp.size() &lt;&lt; endl;
-
-    return 0;
-}</code></pre><h3 id="map-的常见的用途"><a href="#map-的常见的用途" class="headerlink" title="map 的常见的用途"></a>map 的常见的用途</h3><p>&emsp;&emsp;① 需要建立字符(或字符串) 与整数之间的映射的题目，使用 map 可以减少代码量。</p>
-<p>&emsp;&emsp;② 判断大整数或者其他类型数据是否存在的题目，可以把 map 当 bool 数组用。</p>
-<p>&emsp;&emsp;③ 字符串和字符串的映射也有可能会遇到。</p>
-<p>&emsp;&emsp;延伸：map 的键和值是唯一的，而如果一个键需要对应多个值，就只能用 <strong>multimap</strong>。</p>
-<p>&emsp;&emsp;晚安。</p>
+} </code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>haha 10
+heihie 5</code></pre><p>&emsp;晚安。</p>
 
             </div>
             <hr/>
@@ -625,7 +561,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/17/map/">https://aizhouzhou.github.io/2019/11/17/map/</a>
+                    <a href="https://aizhouzhou.github.io/2019/11/17/pair/">https://aizhouzhou.github.io/2019/11/17/pair/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1105,7 +1041,7 @@ int main() {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/17/queue/">
+                <a href="/2019/11/18/stack/">
                     <div class="card-image">
                         
                         
@@ -1117,12 +1053,12 @@ int main() {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之queue
+                            STL之stack
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-18
                         </span>
                         <span class="publish-author">
                             
@@ -1162,7 +1098,7 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/16/string/">
+                <a href="/2019/11/17/priority-queue/">
                     <div class="card-image">
                         
                         
@@ -1174,12 +1110,12 @@ int main() {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之string
+                            STL之priority_queue
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
                             </span>
                         <span class="publish-author">
                             
