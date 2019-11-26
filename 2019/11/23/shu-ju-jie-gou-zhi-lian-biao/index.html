@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
-    <meta name="description" content="C++标准模板块(STL)介绍map&amp;emsp;&amp;emsp;map翻译为映射，也是常用的 STL 容器。从所周知，在定义数组时(如 int array[100])，其实就是一个从 int 型到 int型的映射，比如 array[0] = 2">
+    <meta name="keywords" content="C++数据结构, Zhouzhou&#39;Blog">
+    <meta name="description" content="数据结构专题1(C++)链表处理链表的概念&amp;emsp;&amp;emsp;线性表是一类很常用的数据结构，分为顺序表和链表。其中顺序表可以简单地理解成前面介绍的 “数组” 这个概念，这里介绍一下链表。
+&amp;emsp;&amp;emsp;按正常方式定义一个数组时">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++标准模板库(STL) | Zhouzhou&#39;Blog</title>
+    <title>C++数据结构 | Zhouzhou&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -281,13 +282,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++标准模板库(STL)
+                        C++数据结构
                     </div>
                 </div>
             </div>
@@ -298,10 +299,99 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -318,8 +408,8 @@
                                 <span class="chip bg-color">Markdown</span>
                             </a>
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
                             </a>
                         
                     </div>
@@ -343,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-17
+                    2019-11-23
                 </div>
                 
 
@@ -357,14 +447,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    14 分
                 </div>
                 
 				
@@ -380,137 +470,163 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>&emsp;&emsp;map翻译为映射，也是常用的 <strong>STL</strong> 容器。从所周知，在定义数组时(如 int array[100])，其实就是一个从 int 型到 int型的映射，比如 array[0] = 25，array[4] = 36 就分别是将 0 映射到 25，将 4 映射到 36。一个 double 型数组则是将 int 型映射到 double 型，例如 db[0] = 3.14，db[1] = 0.01。但是，无论是什么类型，它总是将 int型映射到其他类型。这似乎表现出一个弊端：当需要以其他类型作为关键字来做映射时，会显得不太方便。例如有一本字典，上面提供了很多的字符串对应的页码，如果要用数组来表示 “字符串 –&gt; 页码” 这样的对应关系，就会感觉不太友好。这时，我们的map就派上用场了，因为 <strong>map 可以将任何基本类型(包括STL容器)映射到任何基本类型(包括STL容器)</strong>，也就可以建立 string型到 int型的映射了。</p>
-<h3 id="1-map-的定义"><a href="#1-map-的定义" class="headerlink" title="1. map 的定义"></a>1. map 的定义</h3><p>&emsp;&emsp;单独定义一个map：</p>
-<pre><code>map&lt;typenmae, typename&gt; mp;</code></pre><p>&emsp;&emsp;map 和其他 <strong>STL</strong> 容器在定义上有点不一样，因为 map 需要确定映射前类型(键：key)和映射后类型(值：value)，所以需要在 &lt;&gt; 内填写两个类型，其中第一个是键的类型，第二个是值的类型。如果是 int型 映射到 int型，就是相当于是普通的 int数组。</p>
-<p>&emsp;&emsp;而如果是字符串到整型的映射，<strong>必须使用 string 而不能用 char数组</strong>：</p>
-<pre><code>map&lt;string, int&gt; mp;</code></pre><p>&emsp;&emsp;这是因为 char 数组作为数组，是不能被作为键值的，如果想用字符串做映射，必须用 string</p>
-<p>&emsp;&emsp;前面也说到，map 的键和值也可以是 <strong>STL</strong> 容器，例如可以将一个 set容器映射到一个字符串：</p>
-<pre><code>map&lt;set&lt;int&gt;, string&gt; mp;</code></pre><h3 id="2-map-容器内元素的访问"><a href="#2-map-容器内元素的访问" class="headerlink" title="2. map 容器内元素的访问"></a>2. map 容器内元素的访问</h3><p>&emsp;&emsp;map 一般有两种访问方式：通过下标访问或者通过迭代器访问。</p>
-<h4 id="1-通过下标访问"><a href="#1-通过下标访问" class="headerlink" title="(1) 通过下标访问"></a>(1) 通过下标访问</h4><p>&emsp;&emsp;和访问普通的数组是一样的，例如对一个定义为 map&lt;char, int&gt; mp 的map来说，就可以直接使用 mp[‘c’] 的方式来访问它对应的整数。于是，当建立映射时，就可以直接使用 mp[‘c’] = 20，这样普通数组一样的方式。但是要注意的是，<strong>map中的键是唯一的</strong>，也就是说，下面的代码将输出 30：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;c&#39;] = 20;
-    mp[&#39;c&#39;] = 30;    // 20 被覆盖
+                <h2 id="数据结构专题1-C"><a href="#数据结构专题1-C" class="headerlink" title="数据结构专题1(C++)"></a>数据结构专题1(C++)</h2><h2 id="链表处理"><a href="#链表处理" class="headerlink" title="链表处理"></a>链表处理</h2><h3 id="链表的概念"><a href="#链表的概念" class="headerlink" title="链表的概念"></a>链表的概念</h3><p>&emsp;&emsp;线性表是一类很常用的数据结构，分为顺序表和链表。其中顺序表可以简单地理解成前面介绍的 “数组” 这个概念，这里介绍一下链表。</p>
+<p>&emsp;&emsp;按正常方式定义一个数组时，计算机会从内存中取出一块<strong>连续</strong>的地址来存放给定长度的的数组；而链表则是由若干个节点组成（每个节点代表一个元素），且节点在内存中的存储位置通常是<strong>不连续</strong>的。除此之外，链表的两个节点之间一般通过一个指针来从一个节点指向另一个节点，因此链表的节点一般由两部分组成，即数据域和指针域：</p>
+<pre><code>struct node {
+    typenamedata;    // 数据域
+    node* next;        // 指针域
+}</code></pre><p>&emsp;&emsp;一般来说，数据域存放节点要存储的数据，而指针域指向下一个节点的地址，这样就会产生从某个节点开始，由指针连接的一条链式结构，即链表。而以链表是否存在头节点，又可以把链表分为<strong>带头节点</strong>的链表和<strong>不带头节点的</strong>链表。头节点一般称为 head，且其数据域 data 不存放任何内容，而指针域 next 指向第一个数据域有内容的节点（一般把这个节点叫做<strong>首节点</strong>）。事实上，两种链表的写法大同小异，因此为了统一起见，下面描述链表<strong>均采用带头节点的写法</strong>。下图为各含有 5 个元素的数组和链表，可以看到数组的地址是连续的，但链表则是由若干个地址可能不连续的节点通过指针连接而成，且最后一个节点的 next指针指向 NULL，即空地址，表示一条链表的结尾。</p>
+<p><img src="http://m.qpic.cn/psb?/V12kakoQ2q5R2U/I6NP3BoRQJaG1XbZMlVjPXh1e1nygTVxkD.6zabp*8M!/b/dL8AAAAAAAAA&bo=EQQuAQAAAAADBxg!&rf=viewer_4" alt=""></p>
+<center>图1</center>
 
-cout &lt;&lt; mp[&#39;c&#39;];
-    return 0;
-}</code></pre><h4 id="2-通过迭代器访问"><a href="#2-通过迭代器访问" class="headerlink" title="(2) 通过迭代器访问"></a>(2) 通过迭代器访问</h4><p>&emsp;&emsp;map 迭代器的定义和其他 <strong>STL</strong> 容器迭代器定义的方式相同：</p>
-<pre><code>map&lt;typename1, typename2&gt;::iterator it;</code></pre><p>&emsp;&emsp;typename1 和 typename2 就是定义 map时填写的类型，这样就得到了迭代器it。</p>
-<p>&emsp;&emsp;map 迭代器的使用方式和其他 <strong>STL</strong>容器的迭代器不同，因为 map 的每一对映射都有两个typename，这决定了必须能通过一个 it 来同时访问键和值。事实上，<strong>map 可以使用 it-&gt;first来访问键，使用 it-&gt;second 来访问值</strong>。</p>
-<p>&emsp;&emsp;来看下面这个示例：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;m&#39;] = 20;
-    mp[&#39;r&#39;] = 30;
-    mp[&#39;a&#39;] = 40;
-    for(map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++){
-        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    }
-    return 0;
-}</code></pre><p>&emsp;&emsp;在上面这个例子中，it-&gt;first 是当前映射的键，it-&gt;second 是当前映射的值。程序的输出如下：</p>
-<pre><code>a 40
-m 20
-r 30</code></pre><p>&emsp;&emsp;接下来似乎发现了一个很有意思的现象，<strong>map会以键从小到大的顺序自动排序，</strong>即按 a &lt; m &lt; r 的顺序排序这三对映射。这是由于 map 内部是使用红黑树实现的(set 也是)，在建立映射的过程中会自动实现从小到大的排序功能。</p>
-<h3 id="map-常用函数实例解析"><a href="#map-常用函数实例解析" class="headerlink" title="map 常用函数实例解析"></a>map 常用函数实例解析</h3><h4 id="1-find"><a href="#1-find" class="headerlink" title="(1) find()"></a>(1) find()</h4><p>&emsp;&emsp;find(key) 返回键为 key 的映射的迭代器，时间复杂度为 O(logN)，N 为 map 中映射的个数。示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-    map&lt;char, int&gt;::iterator it = mp.find(&#39;b&#39;);
 
-    cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>b 2</code></pre><h4 id="2-erase"><a href="#2-erase" class="headerlink" title="(2) erase()"></a>(2) erase()</h4><p>&emsp;&emsp;erase() 有两种方法：删除单个元素，删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;① 删除单个元素。</p>
-<p>&emsp;&emsp;删除单个元素有两种方法：</p>
-<ul>
-<li>mp.erase(it)，it 为需要删除的元素的迭代器。时间复杂度为 O(1)。</li>
-</ul>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
+
+
+<p><img src="http://m.qpic.cn/psb?/V12kakoQ2q5R2U/73YKiq8SbHCJwy.t*rPjiTRzBTR88UywdF1zUjNglWo!/b/dDYBAAAAAAAA&bo=GQOVAQAAAAADB6w!&rf=viewer_4" alt=""></p>
+<center>图2</center>
+
+<h3 id="使用-malloc-函数或-new-运算符为链表节点分配内存空间"><a href="#使用-malloc-函数或-new-运算符为链表节点分配内存空间" class="headerlink" title="使用 malloc 函数或 new 运算符为链表节点分配内存空间"></a>使用 malloc 函数或 new 运算符为链表节点分配内存空间</h3><h4 id="1-malloc函数"><a href="#1-malloc函数" class="headerlink" title="1. malloc函数"></a>1. malloc函数</h4><p>&emsp;&emsp;mallco 函数是 C语言 stdio.h头文件下用于申请动态内存的函数，其返回类型是申请的同变量类型的指针，其基本用法如下：</p>
+<pre><code>typename* p = (typename*)malloc(sizeof(typename));</code></pre><p>&emsp;&emsp;以申请一个 int 型变量和一个 node型结构体变量为例：</p>
+<pre><code>int* p = (int*)malloc(sizeof(int));
+node* p = (node*)malloc(sizeof(node));</code></pre><p>&emsp;&emsp;这个写法的逻辑是：以需要申请的内存空间大小（即sizeof(node)）为 malloc函数的参数，这样 malloc函数就会向内存申请一块大小为 sizeof(node) 的内存空间，并且<strong>返回指向这块空间的指针</strong>。但是此时这个指针是一个未确定类型的指针 void*，因此需要把它强制转换为 node*型的指针，因此在 malloc之前加上(node<em>)。这样等号右边就得到了一个node\</em>型的指针，并通过赋值等号把这个指针赋给 node*型的指针变量p，就成功申请了一块 node型大小的内存空间，即一个node型的结构体变量，并通过指针p来访问它。如果申请失败，则会返回空指针NULL。</p>
+<p>&emsp;&emsp;其实一般来说，如果只是申请一个链表节点的话是不会失败的，失败一般发生在使用 malloc申请了较大的动态数组，即：</p>
+<pre><code>int *p = (int*)malloc(1000000 * sizeof(int));</code></pre><p>&emsp;&emsp;这种情况下 malloc会返回空指针NULL并赋值给p。因此只要是正常分配一个节点的空间是不会失败的，当然发生死循环导致无限申请的情况除外。</p>
+<h4 id="2-new-运算符"><a href="#2-new-运算符" class="headerlink" title="2. new 运算符"></a>2. new 运算符</h4><p>&emsp;&emsp;new 是C++ 中用来申请动态空间的运算符，其返回类型同样是申请的同变量类型的指针，其基本用法如下：</p>
+<pre><code>typename* p = new typename;</code></pre><p>&emsp;&emsp;同样以申请一个 int型变量和一个 node型变量为例：</p>
+<pre><code>int *p = new int;
+node *p = new node;</code></pre><p>&emsp;&emsp;可以看到，new的写法比 malloc要简洁许多，只需要<strong>“new + 类型名”</strong>即可分配一块该类型的内存空间，并返回一个对应类型的指针。如果申请失败，则会启动 C++异常机制处理而不是返回空指针NULL。和 malloc同理，如果是使用 new申请了较大的动态数组，即：</p>
+<pre><code>int *p = new int[1000000000];</code></pre><p>&emsp;&emsp;这时会发生异常，并在没有特殊处理的情况下直接退出程序。不过，只要是正常分配一个节点的空间，也是不会失败的。</p>
+<h4 id="3-内存泄漏"><a href="#3-内存泄漏" class="headerlink" title="3. 内存泄漏"></a>3. 内存泄漏</h4><p>&emsp;&emsp;内存泄漏是指使用 malloc与 new开辟出来的内存空间在使用过后没有释放，导致其在程序结束之前始终占据该内存空间，这在一些较大的程序中很容易导致内存消耗过快以致最后无内存可分配。C/C++语言的设计者认为，程序员完全有能力自己控制内存的分配与释放，因此把对内存的控制操作全部交给了程序员（难道我是个假的程序员？？？）。因此初学者需要记住，在使用完 malloc与 new开辟出来的空间后必须将其释放，否则会造成内存泄漏。下面说如何释放 malloc 和 new开辟出来的空间。</p>
+<p><strong>(1) free 函数</strong></p>
+<p>&emsp;&emsp;free函数是对应 malloc函数的，同样是在 stdio.h头文件下。其使用方法非常简单，只需要在 free的参数中填写需要释放的内存空间的指针变量(不妨设为 p)即可：</p>
+<pre><code>free(p);</code></pre><p>&emsp;&emsp;free函数主要实现了两个效果：释放指针变量 p 所指向的内存空间；将指针变量 p 指向空地址NULL。由此可以知道，在 free函数执行之后，指针变量 p 本身没有消失，只不过让它指向了空地址NULL，但是它原指向的内存是确实被释放了的。</p>
+<p>&emsp;&emsp;需要注意的是，malloc函数与 free函数必须成对出现，否则容易产生内存泄漏。</p>
+<p><strong>(2) delete 运算符</strong></p>
+<p>&emsp;&emsp;delete运算符是对应 new运算符的，其使用方法和实现效果均与 free相同。使用 delete只需要在 delete的参数中填写需要释放的内存空间的指针变量（不妨设为 p）即可：</p>
+<pre><code>delete(p);</code></pre><p>&emsp;&emsp;和 free函数一样，new运算符与 delete运算符必须成对出现，否则会容易产生内存泄漏。</p>
+<h3 id="链表的基本操作"><a href="#链表的基本操作" class="headerlink" title="链表的基本操作"></a>链表的基本操作</h3><h4 id="1-创建链表"><a href="#1-创建链表" class="headerlink" title="1. 创建链表"></a>1. 创建链表</h4><p>&emsp;&emsp;现在已经可以通过 malloc或者 new来获得若干个零散的节点了，那么接下来要做的就是把这些零散的节点连接起来。方法也很简单，只要把每个节点的 next指针指向下一个节点的地址即可。下面的代码使用最直观的写法实现了上面图2中链表的建立。</p>
+<pre><code>node *head = new node;
+node *node1 = new node;
+node *node2 = new node;
+node *node3 = new node;
+node *node4 = new node;
+node *node5 = new node;
+head-&gt;next = node1;        //首节点的下一个节点是node1
+node1-&gt;data = 5;
+node1-&gt;next = node2;    //node1的下一个节点是node2
+node2-&gt;data = 3;
+node2-&gt;next = node3;    //node2的下一个节点是node3
+node3-&gt;data = 6;
+node3-&gt;next = node4;    //node3的下一个节点是node4
+node4-&gt;data = 1;
+node4-&gt;next = node5;    //node4的下一个节点是node5
+node5-&gt;data = 2;
+node5-&gt;next = NULL;        //node5的下一个节点是NULL</code></pre><p>&emsp;&emsp;上面的写法似乎显得有些冗长，并且在节点个数不确定的情况下更是无法确定其写法的，因此一般使用 for 循环来建立需要的链表。</p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+struct node{ // 链表节点 
+    int data;
+    node* next;
+};
+// 创建链表（关键函数）
+node* create(int Array[]) {
+    node *p, *pre, *head;    // pre保存当前节点的前驱，head为头节点
+    head = new node;    // 创建头节点
+    head-&gt;next = NULL;    // 头节点不需要数据域，指针域初始为NULL
+    pre = head;    // 记录pre为head
+    for(int i = 0; i &lt; 5; i++) {
+        p = new node;    // 创建新结点
+        // 将Array[i]赋给新建的节点作为数据域，也可以 scanf 输入
+        p-&gt;data = Array[i];
+        p-&gt;next = NULL;    // 新节点的指针域设为NULL 
+        pre-&gt;next = p;    // 前驱节点的指针域设为当前新建节点的地址 
+        pre = p;     // 把pre设为p，作为下一个节点的前驱节点 
+    } 
+    return head;    // 返回头节点指针 
+}
 int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-    map&lt;char, int&gt;::iterator it = mp.find(&#39;b&#39;);
-
-    mp.erase(it);    // 删除 b 2
-    for(map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {
-        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出内容如下：</p>
-<pre><code>a 1
-c 3</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;mp.erase(first, last)，其中 first 为需要删除的区间的起始迭代器，而 last 则为需要删除的区间的末尾的迭代器的下一个地址，也即为删除左闭右开的区间[first, second)。时间复杂度为 O(last - first)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
-    map&lt;char, int&gt;::iterator it = mp.find(&#39;b&#39;);    // 令 it 指向键为 b 的映射
-
-    mp.erase(it, mp.end());    // 删除 it 之后的所有映射，即 b 2 和 c 3
-    for(map&lt;char, int&gt;::iterator it = mp.begin(); it != mp.end(); it++) {
-        cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;
+    int Array[5] = {5, 3, 6, 1, 2};
+    node *L = create(Array);    // 新建链表，返回头指针 head 赋给 L
+    L = L-&gt;next;        // 从第一个节点开始有数据域
+    while(L != NULL) {
+        printf(&quot;%d&quot;,L-&gt;data);    // 输出每个节点的数据域
+        L = L-&gt;next; 
     }
 
     return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>a 1</code></pre><h4 id="3-size"><a href="#3-size" class="headerlink" title="(3) size()"></a>(3) size()</h4><p>&emsp;&emsp;size() 用来获得 map 中映射的对数，时间复杂度为 O(1)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
-    mp[&#39;c&#39;] = 3;
+} </code></pre><p>&emsp;&emsp;输出结果：</p>
+<pre><code>53612</code></pre><h4 id="2-查找元素"><a href="#2-查找元素" class="headerlink" title="2. 查找元素"></a>2. 查找元素</h4><p>&emsp;&emsp;如果已经有了一条链表，那么如何查找其中是否有给定的元素 x 呢？很简单，只需从第一个节点开始，不断判断当前节点的数据域是否等于 x，如果等于，那么就给计数器 count 加 1。这样当到达链表结尾时，count 的值就是链表中 x 的个数。</p>
+<pre><code>// 在以head为头节点的链表上计数元素 x 的个数
+int search(node *head, int x) {
+    int count = 0;    // 计数器
+    node *p = head-&gt;next;    // 从第一个节点开始
+    while(p != NULL) {    // 只要没有到链表末尾
+        if(p-&gt;data == x) {
+            count++;    // 当前节点数据域为 x，则count++ 
+        }
+        p = p-&gt;next;    // 指针移动到下一个节点 
+    }
+    return count;    //返回计数器 
+}</code></pre><p>&emsp;&emsp;上面这部分代码可以直接写在”创建链表”部分的代码中进行使用，把 create 函数返回的头指针L直接作为第一个参数传入即可。</p>
+<h4 id="3-插入元素"><a href="#3-插入元素" class="headerlink" title="3. 插入元素"></a>3. 插入元素</h4><p>&emsp;&emsp;对链表来说，插入元素是指在链表给定位置的地方插入一个节点。例如在链表 5-&gt;3-&gt;6-&gt;1-&gt;2 的第3个位置插入元素 4，就会使链表变为 5-&gt;3-&gt;4-&gt;6-&gt;1-&gt;2。其实，在第 3 个位置插入元素 4 的意思是指在插入完成之后的第 3 个位置的元素就是 4，这就理解了，应该是把原先第3个位置开始的元素，让出来给需要插入的数。图3为插入元素 4 之前与之后的链表对比图。</p>
+<p><img src="http://m.qpic.cn/psb?/V12kakoQ2q5R2U/xtwY51cZt3hedhn5XnlyXdWHf3zjg1NEGuou45aHkyA!/b/dMMAAAAAAAAA&bo=cARSAQAAAAADBwU!&rf=viewer_4" alt=""></p>
+<center>图3</center>
 
-    cout &lt;&lt; mp.size() &lt;&lt; endl;
+<p>&emsp;&emsp;通过图3，还需要知道在插入过程中哪些指针发生了变化。不过这很容易可以看出来：</p>
+<p>&emsp;&emsp;① 元素4所在节点的指针域next指向了元素6所在节点的地址。</p>
+<p>&emsp;&emsp;② 元素3所在节点的指针域next指向了元素4所在节点的地址。</p>
+<p>&emsp;&emsp;于是可以照这个思路写出插入的代码：</p>
+<pre><code>// 将x插入以head为头节点的链表的第 pos个位置
+void insert(node *head, int pos, int x) {
+    node *p = head;
+    for(int i = 0; i &lt; pos - 1; i++) { 
+        p = p-&gt;next;    // pos - 1 是为了插入位置的前一个节点 
+    }
+    node * q = new node;    // 新建节点 
+    q-&gt;data = x;            // 新结点的数据域为 x 
+    q-&gt;next = p-&gt;next;        // 新结点的下一个结点指向原先插入位置的节点 
+    p-&gt;next = q;            // 前一个位置的节点指向节点 
+} </code></pre><p>&emsp;&emsp;这份代码可以直接在”创建链表”部分的代码中使用，把 create函数返回的头指针L直接作为第一个参数传入即可。如果是在第3个位置插入元素4，参数pos 和 x 即为 3 和 4，最后可以输出链表看是否插入成功，正确的输出结果应该是 5 6 3 1 2。</p>
+<p>&emsp;&emsp;图4从上到下的顺序即是代码中新建节点 q 之后各节点指针域的变化过程。可以很清楚地看到，操作顺序<strong>必须是先把新结点地指针域指向后继节点</strong>6，之后才能把元素3所在节点的指针域指向新节点的地址。</p>
+<p><img src="http://m.qpic.cn/psb?/V12kakoQ2q5R2U/MHSJr2xDSwDJeHMg7BgWiFQHidBbRZJph8F4JIZI*iY!/b/dL8AAAAAAAAA&bo=XgSPAgAAAAADB*U!&rf=viewer_4" alt=""></p>
+<center>图4</center>
 
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>3</code></pre><h4 id="4-clear"><a href="#4-clear" class="headerlink" title="(4) clear()"></a>(4) clear()</h4><p>&emsp;&emsp;clear() 用来清空 map 中的所有元素，复杂度为 O(N)，其中 N 为 map 中元素的个数。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;map&gt;
-using namespace std;
-int main() {
-    map&lt;char, int&gt; mp;
-    mp[&#39;a&#39;] = 1;
-    mp[&#39;b&#39;] = 2;
+<h4 id="3-删除元素"><a href="#3-删除元素" class="headerlink" title="3. 删除元素"></a>3. 删除元素</h4><p>&emsp;&emsp;对链表来说，删除元素是指删除链表上所有值给定的数 x。例如删除表 5-&gt;3-&gt;6-&gt;1-&gt;2 中的6，就会使链表变为 5-&gt;3-&gt;1-&gt;2 ，如图5所示。</p>
+<p><img src="http://m.qpic.cn/psb?/V12kakoQ2q5R2U/AFesq9wY26qYsEgONqueyxswYnjzQaTrQSRZgPm9ySU!/b/dFMBAAAAAAAA&bo=TgTfAAAAAAADB7c!&rf=viewer_4" alt=""></p>
+<center>图5</center>
 
-    mp.clear();
-    cout &lt;&lt; mp.size() &lt;&lt; endl;
+<p>&emsp;&emsp;删除操作时这样进行的：</p>
+<p>&emsp;&emsp;① 由指针变量 p 枚举节点，另一个指针变量 pre 表示 p 指向节点的前驱节点。</p>
+<p>&emsp;&emsp;② 当 p 所指节点的数据域恰好为x时，进行下面三个操作。</p>
+<p>&emsp;&emsp;(1) 令 pre 所指节点的数据域 next 指向 p 所指节点的下一个节点。</p>
+<p>&emsp;&emsp;(2) 释放 p 所指节点的内存空间。</p>
+<p>&emsp;&emsp;(3) 令 p 指向 pre 所指节点的下一个节点。</p>
+<p>&emsp;&emsp;由此可以得到代码：</p>
+<pre><code>// 删除以 head 为头节点的链表中所有数据域为 x 的节点 
+void del(node *head, int x) {
+    node *p = head-&gt;next;    // p 从第一个节点开始枚举 
+    node *pre = head;        // pre 始终保存 p 的前驱节点的指针
+    while(p!=NULL) {
+        if(p-&gt;data == x) {    // 数据域恰好为 x，说明要删除该节点 
+            pre-&gt;next = p-&gt;next;
+            delete(p);
+            p = pre-&gt;next; 
+        } else {
+            pre = p;
+            p = p-&gt;next;
+        }
+    } 
+}</code></pre><p>&emsp;&emsp;这份代码可以直接写在 “创建链表” 部分的代码中使用，把 create函数返回的头指针L 直接作为第一个参数传入即可。如果要删除链表中的6，那么第二个参数 x 填写 6 即可，这样最后应该输出的正确结果应该是 5 3 1 2。</p>
+<p><img src="http://m.qpic.cn/psb?/V12kakoQ2q5R2U/O101BwU1DYksFJsJynalVwCsJqOaNbZKiL3Y2kW2uYc!/b/dL8AAAAAAAAA&bo=PwPaAgAAAAADB8Y!&rf=viewer_4" alt=""></p>
+<center>图6</center>
 
-    return 0;
-}</code></pre><h3 id="map-的常见的用途"><a href="#map-的常见的用途" class="headerlink" title="map 的常见的用途"></a>map 的常见的用途</h3><p>&emsp;&emsp;① 需要建立字符(或字符串) 与整数之间的映射的题目，使用 map 可以减少代码量。</p>
-<p>&emsp;&emsp;② 判断大整数或者其他类型数据是否存在的题目，可以把 map 当 bool 数组用。</p>
-<p>&emsp;&emsp;③ 字符串和字符串的映射也有可能会遇到。</p>
-<p>&emsp;&emsp;延伸：map 的键和值是唯一的，而如果一个键需要对应多个值，就只能用 <strong>multimap</strong>。</p>
-<p>&emsp;&emsp;晚安。</p>
+<h3 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h3><p>&emsp;&emsp;前面说的都是动态链表，继续用指针来建立节点之间的连接关系。而对有些问题来说，节点的地址是比较小的整数(例如 5位数的地址)，这样就没有必要去建立动态链表，而应使用方便的多的静态链表。</p>
+<p>&emsp;&emsp;静态链表的实现原理是 hash，即通过建立一个结构体数组，并令数组的下标直接表示节点的地址，来达到直接访问数组中的元素就能访问节点的效果。另外，由于节点的访问非常方便，因此静态链表是<strong>不需要头节点的</strong>。静态链表节点的定义如下：</p>
+<pre><code>struct Node {
+    typename data; // 数据域
+    int next;       // 指针域
+}node[size];</code></pre><p>&emsp;&emsp;在上面的定义中，next 是一个 int型的整数，用于存放下一个节点的地址（事实上就是数组的下标）。例如，如果初始节点的地址为 1111，第二个节点的地址是 2222，第三个节点的地址是 3333，且第三个节点为链表末尾，那么整个静态链表就可以通过以下写法连接起来：<br>    node[1111] = 2222;<br>    node[2222] = 3333;<br>    node[3333] = -1;    // -1对应动态链表的NULL，表示没有后继节点。</p>
+<p>&emsp;&emsp;<strong>在使用静态链表时，尽量不要把结构体类型名和结构体变量名取成相同的名字。</strong></p>
 
             </div>
             <hr/>
@@ -536,7 +652,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/17/map/">https://aizhouzhou.github.io/2019/11/17/map/</a>
+                    <a href="https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/">https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -582,8 +698,8 @@ int main() {
                                     <span class="chip bg-color">Markdown</span>
                                 </a>
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
                                 </a>
                             
                         </div>
@@ -1016,24 +1132,24 @@ int main() {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/17/queue/">
+                <a href="/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++数据结构">
                         
-                        <span class="card-title">C++标准模板库(STL)</span>
+                        <span class="card-title">C++数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之queue
+                            C++数据结构之queue
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-23
                         </span>
                         <span class="publish-author">
                             
@@ -1058,8 +1174,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1073,24 +1189,24 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/16/string/">
+                <a href="/2019/11/23/shu-ju-jie-gou-zhan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++数据结构">
                         
-                        <span class="card-title">C++标准模板库(STL)</span>
+                        <span class="card-title">C++数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之string
+                            C++数据结构之stack
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-23
                             </span>
                         <span class="publish-author">
                             
@@ -1115,8 +1231,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1154,6 +1270,100 @@ int main() {
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
