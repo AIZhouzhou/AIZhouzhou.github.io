@@ -4,16 +4,16 @@
   
     
     <entry>
-      <title>C++数据结构</title>
-      <link href="/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/"/>
-      <url>/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/</url>
+      <title>螺旋矩阵</title>
+      <link href="/2019/12/02/luo-xuan-ju-zhen/"/>
+      <url>/2019/12/02/luo-xuan-ju-zhen/</url>
       
-        <content type="html"><![CDATA[<h2 id="数据结构专题1-C"><a href="#数据结构专题1-C" class="headerlink" title="数据结构专题1(C++)"></a>数据结构专题1(C++)</h2><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>&emsp;&emsp;队列(queue) 是一种<strong>先进先出</strong>的数据结构，这和栈有所不同，但又更容易理解，因为日常生活中有很多地方都会出现队列这个概念：食堂里排队打饭，每个人都要排到队伍的最后，而队伍最前面的人（即先入队的人）则打饭出队。</p><p>&emsp;&emsp;应当注意到，队列总是从队尾加入元素，而从队首移除元素，并且满足<strong>先进先出</strong>的规则。一般来说，需要一个<strong>队首指针 front **来指向</strong>队首元素的前一个位置<strong>，而使用一个</strong>队尾指针 rear <strong>来指向</strong>队尾元素*<em>。和栈类似，当使用数组来实现队列时，队首指针 front 和队尾指针 rear 为 int型变量（数组下标从0开始）；而当使用链表来实现队列时，则为 int</em>型变量的指针。</p><p>&emsp;&emsp;队列的常用操作，包括清空(clear)，获取队列内元素的个数(size)，判空(empty)，入队(push)，出队(pop)，取队首元素(get_front)，取队尾元素(get_rear)等。</p><p>&emsp;&emsp;<strong>(1) 清空(clear)</strong></p><p>&emsp;&emsp;使用数组来实现队列时，初始状态为 front = rear = -1。</p><pre><code>void clear() {    front = rear = -1;}</code></pre><p>&emsp;&emsp;<strong>(2) 获取队列内元素的个数(size)</strong></p><p>&emsp;&emsp;显然 rear - front 即为队列内元素的个数。</p><pre><code>int size() {    return rear - front;}</code></pre><p>&emsp;&emsp;<strong>(3) 判空(empty)</strong></p><p>&emsp;&emsp;队列判空的条件是 front == rear。</p><pre><code>bool empty() {    if(front == rear) return true;    else return false;} </code></pre><p>&emsp;&emsp;<strong>(4) 入队(push)</strong></p><p>&emsp;&emsp;由于队尾指针 rear 指向队尾元素，因此把元素入队时，需要先把 rear 加 1，然后在存放到 rear 指向的位置。</p><pre><code>void push(int x) {    q[++rear] = x;}</code></pre><p>&emsp;&emsp;<strong>(5) 出队(pop)</strong></p><p>&emsp;&emsp;可以直接把队首指针加 1 来实现出队的效果。</p><pre><code>void pop() {    front++;}</code></pre><p>&emsp;&emsp;<strong>(6) 取队首元素(get_front)</strong></p><p>&emsp;&emsp;由于队首指针 front 指向的是队首元素的前一个元素，依此 front + 1 才是队首元素的位置。</p><pre><code>int get_front() {    return q[front + 1];}</code></pre><p>&emsp;&emsp;<strong>(7) 取队尾元素(get_rear)</strong></p><p>&emsp;&emsp;由于队尾指针 rear 指向的就是队尾元素，因此可以直接访问 rear 的位置。</p><pre><code>int get_rear() {    return q[rear];}</code></pre><p>&emsp;&emsp;与栈类似，出队操作和取对首，队尾元素操作必须在队列非空的情况下才能使用，因此在使用 pop()函数，get_front()函数，get_rear()函数之前必须先使用 empty()函数判断队列是否为空。</p><p>&emsp;&emsp;同样的，可以使用 C++STL 中的 queue 容器来非常容易地使用队列。STL 中的 queue 实现好了队列的常用操作，当需要使用时， 只需直接调用函数即可。</p><p>&emsp;&emsp;另外，STL 中也没有实现队列的清空，所以如果需要实现队列的清空，可以用一个 while 循环反复 pop 出元素直到队列为空， 也就是下面这样的写法：</p><pre><code>while(!q.empty()) {    q.pop();}</code></pre><p>&emsp;&emsp;而更常用的方法是重新定义一个队列以实现队列的清空，因为这并不需要花很多时间，STL 的 queue 进行定义的时间复杂度和定义 stack 一样都是 O(1)。</p><p>&emsp;&emsp;晚安。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="螺旋矩阵"><a href="#螺旋矩阵" class="headerlink" title="螺旋矩阵"></a>螺旋矩阵</h2><p>&emsp;&emsp;昨天校内组织了一次蓝桥模拟赛，其中一道题我觉得挺有意思，接触这类题太少，想了好长时间才想出来，感觉说到底就是找规律，或者还有其他更高级解法，我站在我目前能理解的视角解一下。</p><pre><code>问题描述　　对于一个 n 行 m 列的表格，我们可以使用螺旋的方式给表格依次填上正整数，我们称填好的表格为一个螺旋矩阵。 　　例如，一个 4 行 5 列的螺旋矩阵如下： 　　1 2 3 4 5　　14 15 16 17 6　　13 20 19 18 7　　12 11 10 9 8输入格式　　输入的第一行包含两个整数 n, m，分别表示螺旋矩阵的行数和列数。 　　第二行包含两个整数 r, c，表示要求的行号和列号。输出格式　　输出一个整数，表示螺旋矩阵中第 r 行第 c 列的元素的值。样例输入4 5 2 2样例输出15评测用例规模与约定　　对于 30% 的评测用例，2 &lt;= n, m &lt;= 20。 　　对于 70% 的评测用例，2 &lt;= n, m &lt;= 100。 　　对于所有评测用例，2 &lt;= n, m &lt;= 1000，1 &lt;= r &lt;= n，1 &lt;= c &lt;= m。</code></pre><p>&emsp;&emsp;一般最能想到的方法就是像这样把：</p><center>![](http://m.qpic.cn/psb?/V12kakoQ2q5R2U/e0TLmxMd88o2Gd1TsCEHVzQx6*YmwFyn3x5Wci4QAYo!/b/dL8AAAAAAAAA&bo=FAEgAQAAAAADFwY!&rf=viewer_4)</center><p>&emsp;&emsp;第一行，先依次输入n个数，再竖着输入n-1个，再横着输入n-1，再反竖着输入n-2个数</p><p>&emsp;&emsp;到第二圈了，同样的，横行输入n-1-1个数字，也是同样的类似步骤</p><p>具体代码：</p><pre><code>#include&lt;iostream&gt;using namespace std;int main() {    int n, m;    cout &lt;&lt; &quot;请输入行数：&quot;;    cin &gt;&gt; n;    cout &lt;&lt; &quot;请输入列数：&quot;;    cin &gt;&gt; m;     int count = 1;    int arr[n][m] = {0};    for(int i = 0; i &lt; (n+1) / 2 ; i++) {    // 这里的(n+1)/2是指循环的轮数        //遍历上面一行         for(int j = i; j &lt; m - i; j++) {            arr[i][j] = count++;        }        // 遍历右边一行        for(int j = i + 1; j &lt; n - i; j++) {            arr[j][m - i - 1] = count++;        }         // 遍历下面一行        for(int j = m - i - 1; j &gt; i; j--) {            arr[n-1-i][j -1] = count++;        }        // 遍历右面一行        for(int j = n - 2 - i; j &gt; i; j--) {            arr[j][i] = count++;        }     }    // 输出矩阵    for(int i = 0; i &lt; n; i++) {        for(int j = 0;j &lt; m; j++) {            cout &lt;&lt; arr[i][j] &lt;&lt; &quot;\t&quot;;        }        cout &lt;&lt; endl;    }    return 0;}</code></pre><p>&emsp;&emsp;对我来说第一次见到这种题，还是比较懵逼的哈哈哈。</p>]]></content>
       
       
       <categories>
           
-          <category> C++ </category>
+          <category> 螺旋矩阵 </category>
           
       </categories>
       
@@ -24,7 +24,7 @@
             
             <tag> Markdown </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 螺旋矩阵 </tag>
             
         </tags>
       
@@ -67,6 +67,35 @@
       <url>/2019/11/23/shu-ju-jie-gou-zhan/</url>
       
         <content type="html"><![CDATA[<h2 id="数据结构专题1-C"><a href="#数据结构专题1-C" class="headerlink" title="数据结构专题1(C++)"></a>数据结构专题1(C++)</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>&emsp;&emsp;栈(stack)是一种<strong>后进先出</strong>的数据结构。</p><p>&emsp;&emsp;<strong>栈顶指针</strong> 是 <strong>始终指向栈的最上方元素</strong> 的一个标记，当使用数组实现栈时，栈顶指针是一个 int型 变量(数组下标从 0 开始)，通常记为 TOP；而当使用链表实现栈时，则是一个 int*型指针。<strong>栈中没有元素(即栈空)时令 TOP 为 -1</strong>。</p><p>&emsp;&emsp;栈的一些常用操作，包含清空(clean), 获取栈内元素的个数(size), 判空(empty), 进栈(push), 出栈(pop), 取栈顶元素(top)。</p><p>&emsp;&emsp;<strong>(1) 清空(clear)</strong></p><p>&emsp;&emsp;栈的清空操作将栈顶指针 TOP 置为 -1，表示栈中没有元素。</p><pre><code>void clear() {    TOP = -1;}</code></pre><p>&emsp;&emsp;<strong>(2) 获取栈内元素个数(size)</strong></p><p>&emsp;&emsp;由于栈顶指针 TOP 始终指向栈顶元素，而数组下标从 0 开始，因此栈内元素的数为 TOP + 1。</p><pre><code>int size() {    return TOP + 1;}</code></pre><p>&emsp;&emsp;<strong>(3) 判空(empty)</strong></p><p>&emsp;&emsp;有栈顶指针 TOP 的定义可知，仅当 TOP = -1 时为栈空，返回true；否则，返回false。</p><pre><code>bool empty() {    if(TOP == -1) return true;    else return false;}</code></pre><p>&emsp;&emsp;<strong>(4) 进栈(push)</strong></p><p>&emsp;&emsp;push(x) 操作将元素 x 置于栈顶。由于栈顶指针 TOP 指向栈顶元素，因此需要先把 TOP 加 1，然后再把 x 存入 TOP 指向的位置。</p><pre><code>void push(int x) {    st[++TOP] = x;}</code></pre><p>&emsp;&emsp;<strong>(5) 出栈(pop)</strong></p><p>&emsp;&emsp;pop() 操作将栈顶元素出栈，而实际上可以将栈顶指针 TOP 减 1 来实现这个效果。</p><p>&emsp;&emsp;<strong>(6) 取栈顶元素(top)</strong></p><p>&emsp;&emsp;由于栈顶指针 TOP 始终指向栈顶元素，因为可以 st[TOP]即为栈顶元素。</p><pre><code>int top() {    return st[TOP];}</code></pre><p>&emsp;&emsp;特别注意的是，出栈操作和取栈顶元素操作必须在栈非空的情形下才能使用，因此<strong>在使用pop()函数和top()函数之前，必须先使用empty()含糊判断栈是否为空</strong>。</p><p>&emsp;&emsp;事实上，可以使用 C++ 的 STL 中的 stack 容器来非常容易地使用栈。</p><p>&emsp;&emsp;需要指出地是，STL中没有实现栈地清空，所以<strong>如果需要实现栈地清空，可以用一个 while 循环反复 pop 出元素，直到栈空</strong>，也就是下面这样地写法：</p><pre><code>while(!st.empty()) {    st.pop();}</code></pre><p>&emsp;&emsp;而事实上，更常用的方法是重新定义一个栈以变相实现栈的清空，因为这并不需要花很多的时间，STL 的 stack 进行了定义时间复杂度为 O(1)。</p><!-- ### 【codeup 1918】简单计算器**题目描述**    读入一个包含+, -, *, / 的非负整数计算表达式，计算该表达式的值。**输入格式**    测试输入包含若干个测试用例，每个测试用例占一行，每行不超过200个字符，整数和运算符之间用一个空格分隔。没有非法表达式，当一行中只有 0 时输入结束，相应的结果不要输出。**输出格式**    对每个测试用例输出1行，即表达式的值，精确到小数点后2位。**样例输入**    30 / 90 - 26 + 97 - 5 - 6 - 13 / 88 * 6 + 51 / 29 + 79 * 87 + 57 * 92    0**样例输出**    12178.21**思路**&emsp;&emsp;目给出的是中缀表达式， 所以要计算它的值主要是两个步骤：&emsp;&emsp;①中缀表达式转后缀表达式。&emsp;&emsp;②计算后缀表达式。 --><p>&emsp;&emsp;晚安。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Typora </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C++数据结构</title>
+      <link href="/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/"/>
+      <url>/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/</url>
+      
+        <content type="html"><![CDATA[<h2 id="数据结构专题1-C"><a href="#数据结构专题1-C" class="headerlink" title="数据结构专题1(C++)"></a>数据结构专题1(C++)</h2><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>&emsp;&emsp;队列(queue) 是一种<strong>先进先出</strong>的数据结构，这和栈有所不同，但又更容易理解，因为日常生活中有很多地方都会出现队列这个概念：食堂里排队打饭，每个人都要排到队伍的最后，而队伍最前面的人（即先入队的人）则打饭出队。</p><p>&emsp;&emsp;应当注意到，队列总是从队尾加入元素，而从队首移除元素，并且满足<strong>先进先出</strong>的规则。一般来说，需要一个<strong>队首指针 front **来指向</strong>队首元素的前一个位置<strong>，而使用一个</strong>队尾指针 rear <strong>来指向</strong>队尾元素*<em>。和栈类似，当使用数组来实现队列时，队首指针 front 和队尾指针 rear 为 int型变量（数组下标从0开始）；而当使用链表来实现队列时，则为 int</em>型变量的指针。</p><p>&emsp;&emsp;队列的常用操作，包括清空(clear)，获取队列内元素的个数(size)，判空(empty)，入队(push)，出队(pop)，取队首元素(get_front)，取队尾元素(get_rear)等。</p><p>&emsp;&emsp;<strong>(1) 清空(clear)</strong></p><p>&emsp;&emsp;使用数组来实现队列时，初始状态为 front = rear = -1。</p><pre><code>void clear() {    front = rear = -1;}</code></pre><p>&emsp;&emsp;<strong>(2) 获取队列内元素的个数(size)</strong></p><p>&emsp;&emsp;显然 rear - front 即为队列内元素的个数。</p><pre><code>int size() {    return rear - front;}</code></pre><p>&emsp;&emsp;<strong>(3) 判空(empty)</strong></p><p>&emsp;&emsp;队列判空的条件是 front == rear。</p><pre><code>bool empty() {    if(front == rear) return true;    else return false;} </code></pre><p>&emsp;&emsp;<strong>(4) 入队(push)</strong></p><p>&emsp;&emsp;由于队尾指针 rear 指向队尾元素，因此把元素入队时，需要先把 rear 加 1，然后在存放到 rear 指向的位置。</p><pre><code>void push(int x) {    q[++rear] = x;}</code></pre><p>&emsp;&emsp;<strong>(5) 出队(pop)</strong></p><p>&emsp;&emsp;可以直接把队首指针加 1 来实现出队的效果。</p><pre><code>void pop() {    front++;}</code></pre><p>&emsp;&emsp;<strong>(6) 取队首元素(get_front)</strong></p><p>&emsp;&emsp;由于队首指针 front 指向的是队首元素的前一个元素，依此 front + 1 才是队首元素的位置。</p><pre><code>int get_front() {    return q[front + 1];}</code></pre><p>&emsp;&emsp;<strong>(7) 取队尾元素(get_rear)</strong></p><p>&emsp;&emsp;由于队尾指针 rear 指向的就是队尾元素，因此可以直接访问 rear 的位置。</p><pre><code>int get_rear() {    return q[rear];}</code></pre><p>&emsp;&emsp;与栈类似，出队操作和取对首，队尾元素操作必须在队列非空的情况下才能使用，因此在使用 pop()函数，get_front()函数，get_rear()函数之前必须先使用 empty()函数判断队列是否为空。</p><p>&emsp;&emsp;同样的，可以使用 C++STL 中的 queue 容器来非常容易地使用队列。STL 中的 queue 实现好了队列的常用操作，当需要使用时， 只需直接调用函数即可。</p><p>&emsp;&emsp;另外，STL 中也没有实现队列的清空，所以如果需要实现队列的清空，可以用一个 while 循环反复 pop 出元素直到队列为空， 也就是下面这样的写法：</p><pre><code>while(!q.empty()) {    q.pop();}</code></pre><p>&emsp;&emsp;而更常用的方法是重新定义一个队列以实现队列的清空，因为这并不需要花很多时间，STL 的 queue 进行定义的时间复杂度和定义 stack 一样都是 O(1)。</p><p>&emsp;&emsp;晚安。</p>]]></content>
       
       
       <categories>

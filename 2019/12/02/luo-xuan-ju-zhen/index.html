@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++标准模板库(STL), Zhouzhou&#39;Blog">
-    <meta name="description" content="C++标准模板块(STL)介绍set1. set 的定义&amp;emsp;&amp;emsp;单独定义一个setset&amp;lt;typename&amp;gt; name;
-set&amp;lt;double&amp;gt; name;
-set&amp;lt;int&amp;gt; name;
-">
+    <meta name="keywords" content="螺旋矩阵, Zhouzhou&#39;Blog">
+    <meta name="description" content="螺旋矩阵&amp;emsp;&amp;emsp;昨天校内组织了一次蓝桥模拟赛，其中一道题我觉得挺有意思，接触这类题太少，想了好长时间才想出来，感觉说到底就是找规律，或者还有其他更高级解法，我站在我目前能理解的视角解一下。
+问题描述
+
+　　对于一个 n 行 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@ set&amp;lt;int&amp;gt; name;
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C++标准模板库(STL) | Zhouzhou&#39;Blog</title>
+    <title>螺旋矩阵 | Zhouzhou&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -284,13 +284,13 @@ set&amp;lt;int&amp;gt; name;
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C++标准模板库(STL)
+                        螺旋矩阵
                     </div>
                 </div>
             </div>
@@ -301,10 +301,99 @@ set&amp;lt;int&amp;gt; name;
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -321,8 +410,8 @@ set&amp;lt;int&amp;gt; name;
                                 <span class="chip bg-color">Markdown</span>
                             </a>
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
+                                <span class="chip bg-color">螺旋矩阵</span>
                             </a>
                         
                     </div>
@@ -333,8 +422,8 @@ set&amp;lt;int&amp;gt; name;
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/" class="post-category">
+                                螺旋矩阵
                             </a>
                         
                     </div>
@@ -346,28 +435,28 @@ set&amp;lt;int&amp;gt; name;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-16
+                    2019-12-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-11-26
+                    2019-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    644
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
 				
@@ -383,127 +472,88 @@ set&amp;lt;int&amp;gt; name;
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-标准模板块-STL-介绍"><a href="#C-标准模板块-STL-介绍" class="headerlink" title="C++标准模板块(STL)介绍"></a>C++标准模板块(STL)介绍</h2><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h3 id="1-set-的定义"><a href="#1-set-的定义" class="headerlink" title="1. set 的定义"></a>1. set 的定义</h3><h4 id="emsp-emsp-单独定义一个set"><a href="#emsp-emsp-单独定义一个set" class="headerlink" title="&emsp;&emsp;单独定义一个set"></a>&emsp;&emsp;单独定义一个set</h4><pre><code>set&lt;typename&gt; name;
-set&lt;double&gt; name;
-set&lt;int&gt; name;
-set&lt;char&gt; name;
-set&lt;node&gt; name;    // node 是结构体的类型</code></pre><h4 id="emsp-emsp-set数组的定义和-vector-相同"><a href="#emsp-emsp-set数组的定义和-vector-相同" class="headerlink" title="&emsp;&emsp;set数组的定义和 vector 相同"></a>&emsp;&emsp;set数组的定义和 vector 相同</h4><pre><code>set&lt;typename&gt; st[100];</code></pre><p>&emsp;&emsp;这样 st[0] - st[99] 中每一个都是一个vector容器。</p>
-<h3 id="2-set-容器内元素的访问"><a href="#2-set-容器内元素的访问" class="headerlink" title="2. set 容器内元素的访问"></a>2. set 容器内元素的访问</h3><h4 id="emsp-emsp-set-只能通过迭代器-iterator-访问"><a href="#emsp-emsp-set-只能通过迭代器-iterator-访问" class="headerlink" title="&emsp;&emsp;set 只能通过迭代器(iterator)访问"></a>&emsp;&emsp;set 只能通过迭代器(iterator)访问</h4><pre><code>set&lt;typename&gt;::iterator it;</code></pre><p>&emsp;&emsp;typename 就是定义 set 时填写的类型，下面是 typename 为 int 和 char 的举例：</p>
-<pre><code>set&lt;int&gt;::iterator it;
-set&lt;char&gt;::iterator it;</code></pre><p>&emsp;&emsp;这样就得到了迭代器it，并且可以通过 *it 来访问 set 里的元素。</p>
-<p>&emsp;&emsp;由于<strong>除开 vector 和 string 之外的 STL 容器都不支持 *(it + i)</strong>的访问方式，因此只能按照以下方式枚举：</p>
+                <h2 id="螺旋矩阵"><a href="#螺旋矩阵" class="headerlink" title="螺旋矩阵"></a>螺旋矩阵</h2><p>&emsp;&emsp;昨天校内组织了一次蓝桥模拟赛，其中一道题我觉得挺有意思，接触这类题太少，想了好长时间才想出来，感觉说到底就是找规律，或者还有其他更高级解法，我站在我目前能理解的视角解一下。</p>
+<pre><code>问题描述
+
+　　对于一个 n 行 m 列的表格，我们可以使用螺旋的方式给表格依次填上正整数，我们称填好的表格为一个螺旋矩阵。
+ 　　例如，一个 4 行 5 列的螺旋矩阵如下：
+ 　　1 2 3 4 5
+　　14 15 16 17 6
+　　13 20 19 18 7
+　　12 11 10 9 8
+
+输入格式
+
+　　输入的第一行包含两个整数 n, m，分别表示螺旋矩阵的行数和列数。
+ 　　第二行包含两个整数 r, c，表示要求的行号和列号。
+
+输出格式
+
+　　输出一个整数，表示螺旋矩阵中第 r 行第 c 列的元素的值。
+
+样例输入
+
+4 5
+ 2 2
+
+样例输出
+
+15
+
+评测用例规模与约定
+
+　　对于 30% 的评测用例，2 &lt;= n, m &lt;= 20。
+ 　　对于 70% 的评测用例，2 &lt;= n, m &lt;= 100。
+ 　　对于所有评测用例，2 &lt;= n, m &lt;= 1000，1 &lt;= r &lt;= n，1 &lt;= c &lt;= m。</code></pre><p>&emsp;&emsp;一般最能想到的方法就是像这样把：</p>
+<center>![](http://m.qpic.cn/psb?/V12kakoQ2q5R2U/e0TLmxMd88o2Gd1TsCEHVzQx6*YmwFyn3x5Wci4QAYo!/b/dL8AAAAAAAAA&bo=FAEgAQAAAAADFwY!&rf=viewer_4)
+</center>
+
+<p>&emsp;&emsp;第一行，先依次输入n个数，再竖着输入n-1个，再横着输入n-1，再反竖着输入n-2个数</p>
+<p>&emsp;&emsp;到第二圈了，同样的，横行输入n-1-1个数字，也是同样的类似步骤</p>
+<p>具体代码：</p>
 <pre><code>#include&lt;iostream&gt;
-#include&lt;set&gt;
 using namespace std;
 int main() {
-    set&lt;int&gt; st;
-    st.insert(3);    // insert(x)将 x 插入 set 中
-    st.insert(5);
-    st.insert(2);
-    st.insert(3);
-     // 注意，不支持 it &lt; st.end() 的写法
-    for(set&lt;int&gt;::iterator it = st.begin(); it != st.end(); it++) {
-        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
+    int n, m;
+    cout &lt;&lt; &quot;请输入行数：&quot;;
+    cin &gt;&gt; n;
+    cout &lt;&lt; &quot;请输入列数：&quot;;
+    cin &gt;&gt; m; 
+
+    int count = 1;
+    int arr[n][m] = {0};
+
+    for(int i = 0; i &lt; (n+1) / 2 ; i++) {    // 这里的(n+1)/2是指循环的轮数
+        //遍历上面一行 
+        for(int j = i; j &lt; m - i; j++) {
+            arr[i][j] = count++;
+        }
+
+        // 遍历右边一行
+        for(int j = i + 1; j &lt; n - i; j++) {
+            arr[j][m - i - 1] = count++;
+        } 
+
+        // 遍历下面一行
+        for(int j = m - i - 1; j &gt; i; j--) {
+            arr[n-1-i][j -1] = count++;
+        }
+
+        // 遍历右面一行
+        for(int j = n - 2 - i; j &gt; i; j--) {
+            arr[j][i] = count++;
+        } 
     }
 
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>2 3 5</code></pre><h3 id="3-set-常用的函数实例解析"><a href="#3-set-常用的函数实例解析" class="headerlink" title="3. set 常用的函数实例解析"></a>3. set 常用的函数实例解析</h3><h4 id="1-insert"><a href="#1-insert" class="headerlink" title="(1) insert()"></a>(1) insert()</h4><p>&emsp;&emsp;insert(x) 可将 x 插入 set 容器中，并自动递增排序和去重，时间复杂度为 O(logN)，其中 N 为 set 内的元素的个数。</p>
-<h4 id="2-find"><a href="#2-find" class="headerlink" title="(2) find()"></a>(2) find()</h4><p>&emsp;&emsp;find(value) 返回 set 中对应值为 value 的迭代器，时间复杂度为 O(logN)，其中 N 为 set 内的元素的个数。</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;set&gt;
-using namespace std;
-int main() {
-    set&lt;int&gt; st;
-    for(int i = 1; i &lt;= 3; i++) {
-        st.insert(i);
+    // 输出矩阵
+    for(int i = 0; i &lt; n; i++) {
+        for(int j = 0;j &lt; m; j++) {
+            cout &lt;&lt; arr[i][j] &lt;&lt; &quot;\t&quot;;
+        }
+        cout &lt;&lt; endl;
     }
-
-    set&lt;int&gt;::iterator it = st.find(2);    //在 set 中查找2，返回其迭代器
-    cout &lt;&lt; *it;
-
     return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>2</code></pre><h4 id="3-erase"><a href="#3-erase" class="headerlink" title="(3) erase()"></a>(3) erase()</h4><p>&emsp;&emsp;erase()有两种方法：删除单个元素，删除一个区间内的所有元素。</p>
-<p>&emsp;&emsp;① 删除单个元素。</p>
-<p>&emsp;&emsp;删除单个元素的方法：</p>
-<ul>
-<li><p>st.erase(it)，it 为所有需要删除元素的迭代器。时间复杂度为 O(1)。可以结合 find()  函数来使用。示例如下：</p>
-<pre><code>  #include&lt;iostream&gt;
-  #include&lt;set&gt;
-  using namespace std;
-  int main() {
-      set&lt;int&gt; st;
-      st.insert(100);
-      st.insert(200);
-      st.insert(100);
-      st.insert(300);    
-
-      st.erase(st.find(100));    // 利用 find()函数找到100， 然后用 erase 删除它
-      st.erase(st.find(200));    // 利用 find()函数找到100， 然后用 erase 删除它
-
-      for(set&lt;int&gt;::iterator it = st.begin(); it != st.end(); it++) {
-          cout &lt;&lt; *it;
-      }
-
-      return 0;
-  }</code></pre></li>
-</ul>
-<p>&emsp;&emsp;输出结果：</p>
-<pre><code>200</code></pre><p>&emsp;&emsp;② 删除一个区间内的所有元素。<br>&emsp;&emsp;st.erase(first, end)可以删除一个区间内的所有元素，其中 first 为所需要删除区间的起始迭代器，而 last 则为所需要删除区间的末尾迭代器的下一个地址，也即为删除[first, last)。时间复杂度为 O(last - first)。示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;set&gt;
-using namespace std;
-int main() {
-    set&lt;int&gt; st;
-    st.insert(20);
-    st.insert(10);
-    st.insert(40);
-    st.insert(30);    
-
-    set&lt;int&gt;::iterator it  = st.find(30);
-    st.erase(it, st.end()); // 删除元素 30 至 set 末尾之间的元素，即 30 和 40            
-
-    for(set&lt;int&gt;::iterator it = st.begin(); it != st.end(); it++) {
-        cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
-    }
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>3</code></pre><h4 id="4-size"><a href="#4-size" class="headerlink" title="(4) size()"></a>(4) size()</h4><p>&emsp;&emsp;size() 用来获取 set 内元素的个数，时间复杂度为 O(1)。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;set&gt;
-using namespace std;
-int main() {
-    set&lt;int&gt; st;
-    st.insert(2);
-    st.insert(5);
-    st.insert(4);    // 插入 2 5 4
-
-    st.clear();        // 输出 set 内元素的个数
-    cout &lt;&lt; st.size();        
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>3</code></pre><h4 id="5-clear"><a href="#5-clear" class="headerlink" title="(5) clear()"></a>(5) clear()</h4><p>&emsp;&emsp;clear() 用来清空 set 中的所有元素，复杂度为 O(N)，其中 N 为 set 内元素的个数。</p>
-<p>&emsp;&emsp;示例如下：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;set&gt;
-using namespace std;
-int main() {
-    set&lt;int&gt; st;
-    st.insert(2);
-    st.insert(5);
-    st.insert(4);
-
-    st.clear();    // 清空 set
-    cout &lt;&lt; st.size();        
-
-    return 0;
-}</code></pre><p>&emsp;&emsp;输出结果：</p>
-<pre><code>0</code></pre><h3 id="3-set-的常见用途"><a href="#3-set-的常见用途" class="headerlink" title="3. set 的常见用途"></a>3. set 的常见用途</h3><h4 id="emsp-emsp-set-最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用-set-解决。"><a href="#emsp-emsp-set-最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用-set-解决。" class="headerlink" title="&emsp;&emsp;set 最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用 set 解决。"></a>&emsp;&emsp;set 最主要的作用是自动去重并按升序排序，因此碰到需要去重但是却不方便直接开数组的情况，可以尝试用 set 解决。</h4><p>&emsp;&emsp;<strong>延伸</strong>：set 中元素是唯一的，如果需要处理不唯一的情况，则需要使用 <strong>multiset</strong>。</p>
-<p>&emsp;&emsp;晚安。</p>
+}</code></pre><p>&emsp;&emsp;对我来说第一次见到这种题，还是比较懵逼的哈哈哈。</p>
 
             </div>
             <hr/>
@@ -529,7 +579,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/11/16/set/">https://aizhouzhou.github.io/2019/11/16/set/</a>
+                    <a href="https://aizhouzhou.github.io/2019/12/02/luo-xuan-ju-zhen/">https://aizhouzhou.github.io/2019/12/02/luo-xuan-ju-zhen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,8 +625,8 @@ int main() {
                                     <span class="chip bg-color">Markdown</span>
                                 </a>
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
+                                    <span class="chip bg-color">螺旋矩阵</span>
                                 </a>
                             
                         </div>
@@ -1005,41 +1055,43 @@ int main() {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/16/string/">
+                <a href="/2019/12/02/luo-xuan-ju-zhen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="螺旋矩阵">
                         
-                        <span class="card-title">C++标准模板库(STL)</span>
+                        <span class="card-title">螺旋矩阵</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之string
+                            螺旋矩阵
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/" class="post-category">
+                                    螺旋矩阵
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1051,8 +1103,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
+                        <span class="chip bg-color">螺旋矩阵</span>
                     </a>
                     
                 </div>
@@ -1066,24 +1118,24 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/16/vector/">
+                <a href="/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++标准模板库(STL)">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++数据结构">
                         
-                        <span class="card-title">C++标准模板库(STL)</span>
+                        <span class="card-title">C++数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            STL之vector
+                            C++数据结构之LinkedList
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-23
                             </span>
                         <span class="publish-author">
                             
@@ -1108,8 +1160,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1147,6 +1199,100 @@ int main() {
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
