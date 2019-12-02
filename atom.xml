@@ -49,10 +49,10 @@
   
   <entry>
     <title>C++数据结构</title>
-    <link href="https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/"/>
-    <id>https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/</id>
+    <link href="https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/"/>
+    <id>https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/</id>
     <published>2019-11-23T15:26:51.000Z</published>
-    <updated>2019-11-26T03:20:03.266Z</updated>
+    <updated>2019-11-24T10:10:49.847Z</updated>
     
     <summary type="html">
     
@@ -60,7 +60,7 @@
       
         
         
-          &lt;h2 id=&quot;数据结构专题1-C&quot;&gt;&lt;a href=&quot;#数据结构专题1-C&quot; class=&quot;headerlink&quot; title=&quot;数据结构专题1(C++)&quot;&gt;&lt;/a&gt;数据结构专题1(C++)&lt;/h2&gt;&lt;h2 id=&quot;链表处理&quot;&gt;&lt;a href=&quot;#链表处理&quot;
+          &lt;h2 id=&quot;数据结构专题1-C&quot;&gt;&lt;a href=&quot;#数据结构专题1-C&quot; class=&quot;headerlink&quot; title=&quot;数据结构专题1(C++)&quot;&gt;&lt;/a&gt;数据结构专题1(C++)&lt;/h2&gt;&lt;h3 id=&quot;队列&quot;&gt;&lt;a href=&quot;#队列&quot;
         
       
     
@@ -111,10 +111,10 @@
   
   <entry>
     <title>C++数据结构</title>
-    <link href="https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/"/>
-    <id>https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/</id>
+    <link href="https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/"/>
+    <id>https://aizhouzhou.github.io/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/</id>
     <published>2019-11-23T15:26:51.000Z</published>
-    <updated>2019-11-24T10:10:49.847Z</updated>
+    <updated>2019-11-26T03:20:03.266Z</updated>
     
     <summary type="html">
     
@@ -122,7 +122,7 @@
       
         
         
-          &lt;h2 id=&quot;数据结构专题1-C&quot;&gt;&lt;a href=&quot;#数据结构专题1-C&quot; class=&quot;headerlink&quot; title=&quot;数据结构专题1(C++)&quot;&gt;&lt;/a&gt;数据结构专题1(C++)&lt;/h2&gt;&lt;h3 id=&quot;队列&quot;&gt;&lt;a href=&quot;#队列&quot;
+          &lt;h2 id=&quot;数据结构专题1-C&quot;&gt;&lt;a href=&quot;#数据结构专题1-C&quot; class=&quot;headerlink&quot; title=&quot;数据结构专题1(C++)&quot;&gt;&lt;/a&gt;数据结构专题1(C++)&lt;/h2&gt;&lt;h2 id=&quot;链表处理&quot;&gt;&lt;a href=&quot;#链表处理&quot;
         
       
     
