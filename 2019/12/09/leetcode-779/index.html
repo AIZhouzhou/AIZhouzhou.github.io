@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="螺旋矩阵, Zhouzhou&#39;Blog">
-    <meta name="description" content="螺旋矩阵&amp;emsp;&amp;emsp;昨天校内组织了一次蓝桥模拟赛，其中一道题我觉得挺有意思，接触这类题太少，想了好长时间才想出来，感觉说到底就是找规律，或者还有其他更高级解法，我站在我目前能理解的视角解一下。
-问题描述
-
-　　对于一个 n 行 ">
+    <meta name="keywords" content="(LeetCode) 779. 第K个语法符号, Zhouzhou&#39;Blog">
+    <meta name="description" content="[LeetCode] 779. 第K个语法符号今天分享一个很有意思的题。https://leetcode-cn.com/problems/k-th-symbol-in-grammar/submissions/
+题目大意：
+在第一行我们写上一">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>螺旋矩阵 | Zhouzhou&#39;Blog</title>
+    <title>(LeetCode) 779. 第K个语法符号 | Zhouzhou&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -284,13 +283,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        螺旋矩阵
+                        (LeetCode) 779. 第K个语法符号
                     </div>
                 </div>
             </div>
@@ -410,8 +409,8 @@
                                 <span class="chip bg-color">Markdown</span>
                             </a>
                         
-                            <a href="/tags/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
-                                <span class="chip bg-color">螺旋矩阵</span>
+                            <a href="/tags/LeetCode/">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -422,8 +421,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/" class="post-category">
-                                螺旋矩阵
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -435,28 +434,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-02
+                    2019-12-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-12-02
+                    2019-12-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    644
+                    322
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 				
@@ -472,89 +471,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="螺旋矩阵"><a href="#螺旋矩阵" class="headerlink" title="螺旋矩阵"></a>螺旋矩阵</h2><p>&emsp;&emsp;昨天校内组织了一次蓝桥模拟赛，其中一道题我觉得挺有意思，接触这类题太少，想了好长时间才想出来，感觉说到底就是找规律，或者还有其他更高级解法，我站在我目前能理解的视角解一下。</p>
-<pre><code>问题描述
+                <h2 id="LeetCode-779-第K个语法符号"><a href="#LeetCode-779-第K个语法符号" class="headerlink" title="[LeetCode] 779. 第K个语法符号"></a>[LeetCode] 779. 第K个语法符号</h2><p>今天分享一个很有意思的题。<a href="https://leetcode-cn.com/problems/k-th-symbol-in-grammar/submissions/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/k-th-symbol-in-grammar/submissions/</a></p>
+<p>题目大意：</p>
+<pre><code>在第一行我们写上一个 0。接下来的每一行，将前一行中的0替换为01，1替换为10。
 
-　　对于一个 n 行 m 列的表格，我们可以使用螺旋的方式给表格依次填上正整数，我们称填好的表格为一个螺旋矩阵。
- 　　例如，一个 4 行 5 列的螺旋矩阵如下：
- 　　1 2 3 4 5
-　　14 15 16 17 6
-　　13 20 19 18 7
-　　12 11 10 9 8
+给定行数 N 和序数 K，返回第 N 行中第 K个字符。（K从1开始）</code></pre><p>例子：</p>
+<pre><code>输入: N = 1, K = 1
+输出: 0
 
-输入格式
+输入: N = 2, K = 1
+输出: 0
 
-　　输入的第一行包含两个整数 n, m，分别表示螺旋矩阵的行数和列数。
- 　　第二行包含两个整数 r, c，表示要求的行号和列号。
+输入: N = 2, K = 2
+输出: 1
 
-输出格式
+输入: N = 4, K = 5
+输出: 1
 
-　　输出一个整数，表示螺旋矩阵中第 r 行第 c 列的元素的值。
-
-样例输入
-
-4 5
- 2 2
-
-样例输出
-
-15
-
-评测用例规模与约定
-
-　　对于 30% 的评测用例，2 &lt;= n, m &lt;= 20。
- 　　对于 70% 的评测用例，2 &lt;= n, m &lt;= 100。
- 　　对于所有评测用例，2 &lt;= n, m &lt;= 1000，1 &lt;= r &lt;= n，1 &lt;= c &lt;= m。</code></pre><p>&emsp;&emsp;一般最能想到的方法就是像这样把：</p>
-<center>![](http://m.qpic.cn/psb?/V12kakoQ2q5R2U/e0TLmxMd88o2Gd1TsCEHVzQx6*YmwFyn3x5Wci4QAYo!/b/dL8AAAAAAAAA&bo=FAEgAQAAAAADFwY!&rf=viewer_4)
-</center>
-
-<p>&emsp;&emsp;第一行，先依次输入n个数，再竖着输入n-1个，再横着输入n-1，再反竖着输入n-2个数</p>
-<p>&emsp;&emsp;到第二圈了，同样的，横行输入n-1-1个数字，也是同样的类似步骤</p>
-<p>具体代码：</p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-int main() {
-    int n, m;
-    cout &lt;&lt; &quot;请输入行数：&quot;;
-    cin &gt;&gt; n;
-    cout &lt;&lt; &quot;请输入列数：&quot;;
-    cin &gt;&gt; m; 
-
-    int count = 1;
-    int arr[n][m] = {0};
-
-    for(int i = 0; i &lt; (n+1) / 2 ; i++) {    // 这里的(n+1)/2是指循环的轮数
-        //遍历上面一行 
-        for(int j = i; j &lt; m - i; j++) {
-            arr[i][j] = count++;
+解释:
+第一行: 0
+第二行: 01
+第三行: 0110
+第四行: 01101001</code></pre><p>注意：</p>
+<pre><code>N 的范围 [1, 30].
+K 的范围 [1, 2^(N-1)].</code></pre><p><strong>思路分析</strong>：我们先画出他的 01 值分布图：</p>
+<pre><code>//                0
+//            /       \   
+//           0         1
+//          / \       / \
+//         0   1     1   0
+//       / \ / \    / \ / \ 
+//      0  1 1  0  1  0 0  1</code></pre><p>不难发现<font color=#FF0000 ><strong>如果K是奇数，则K的状态与K的父节点的状态相同，如果K是偶数，则K的状态与K的父节点状态相反。</strong></font></p>
+<p>直接上代码</p>
+<pre><code>class Solution {
+public:
+    int kthGrammar(int N, int K) {
+         if (N == 1) {//第一层：树的根
+             return 0;
+            }
+           //第一步：先求出当前K的父节点状态（注意bool值默认0是false，1是true）
+           bool father = kthGrammar(N - 1, (K + 1) / 2);
+        //第二步：根据K的奇偶性求出当前K的状态
+        if (K % 2 == 1){
+            return father;
+            } else {
+             return !father;
+         }
         }
-
-        // 遍历右边一行
-        for(int j = i + 1; j &lt; n - i; j++) {
-            arr[j][m - i - 1] = count++;
-        } 
-
-        // 遍历下面一行
-        for(int j = m - i - 1; j &gt; i; j--) {
-            arr[n-1-i][j -1] = count++;
-        }
-
-        // 遍历右面一行
-        for(int j = n - 2 - i; j &gt; i; j--) {
-            arr[j][i] = count++;
-        } 
-    }
-
-    // 输出矩阵
-    for(int i = 0; i &lt; n; i++) {
-        for(int j = 0;j &lt; m; j++) {
-            cout &lt;&lt; arr[i][j] &lt;&lt; &quot;\t&quot;;
-        }
-        cout &lt;&lt; endl;
-    }
-    return 0;
-}</code></pre><p>&emsp;&emsp;对我来说第一次见到这种题，还是比较懵逼的哈哈哈。</p>
-
+};</code></pre>
             </div>
             <hr/>
 
@@ -579,7 +543,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://aizhouzhou.github.io/2019/12/02/luo-xuan-ju-zhen/">https://aizhouzhou.github.io/2019/12/02/luo-xuan-ju-zhen/</a>
+                    <a href="https://aizhouzhou.github.io/2019/12/09/leetcode-779/">https://aizhouzhou.github.io/2019/12/09/leetcode-779/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -625,8 +589,8 @@ int main() {
                                     <span class="chip bg-color">Markdown</span>
                                 </a>
                             
-                                <a href="/tags/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
-                                    <span class="chip bg-color">螺旋矩阵</span>
+                                <a href="/tags/LeetCode/">
+                                    <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
                         </div>
@@ -1060,31 +1024,31 @@ int main() {
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2019/12/02/luo-xuan-ju-zhen/">
+                <a href="/2019/12/09/leetcode-779/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="螺旋矩阵">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="(LeetCode) 779. 第K个语法符号">
                         
-                        <span class="card-title">螺旋矩阵</span>
+                        <span class="card-title">(LeetCode) 779. 第K个语法符号</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            螺旋矩阵
+                            LeetCode 779
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/" class="post-category">
-                                    螺旋矩阵
+                            <a href="/categories/C/" class="post-category">
+                                    C++
                                 </a>
                             
                             
@@ -1103,8 +1067,8 @@ int main() {
                         <span class="chip bg-color">Markdown</span>
                     </a>
                     
-                    <a href="/tags/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/">
-                        <span class="chip bg-color">螺旋矩阵</span>
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
                     </a>
                     
                 </div>
@@ -1118,7 +1082,7 @@ int main() {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/23/shu-ju-jie-gou-zhi-dui-lie/">
+                <a href="/2019/11/23/shu-ju-jie-gou-zhi-lian-biao/">
                     <div class="card-image">
                         
                         
@@ -1130,7 +1094,7 @@ int main() {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++数据结构之queue
+                            C++数据结构之LinkedList
                         
                     </div>
                     <div class="publish-info">
@@ -1311,7 +1275,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">23.5k</span>&nbsp;字
+                class="white-color">23.1k</span>&nbsp;字
             
             
             
